@@ -27,6 +27,7 @@ CREATE TABLE doctor(
     doctor_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     doctor_rut VARCHAR(255) NOT NULL,
     doctor_name VARCHAR(45) NOT NULL,
+    doctor_lastname VARCHAR(45) NOT NULL,
     doctor_phone VARCHAR(15) NOT NULL,
     doctor_email VARCHAR(50) NOT NULL UNIQUE,
     doctor_speciality VARCHAR(100) NOT NULL,
