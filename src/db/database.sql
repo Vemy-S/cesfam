@@ -75,6 +75,7 @@ DROP TABLE cesfam;
 
 INSERT INTO user (user_rut, user_fullname, user_birthdate, user_address, user_phone, user_email, user_password, user_uniquekey, cesfam_id) 
 VALUES 
+(210009361, 'Damarys Ayleen Silva Garcia', '2002-04-15', 'Villa Cordillera 165', 934513464, 'damarys.asg@gmail.com', 'Damarys3214', 'Ds151509.', 1),
 (205422706, 'Jeremy William Vega Fuenzalida', '2001-04-06', 'Villa los Alamos, San Felipe', 958645204, 'jeremyvf16@gmail.com', 'Jeremy2054', 'JVemyS1$', 1),
 (205422707, 'Camila Andrea González Fuentes', '1992-09-25', 'Av. Los Olivos #456, San Felipe', 958632145, 'camilagonzalez92@example.com', 'Camila1992', 'CamilaGF92@', 1),
 (208745623, 'Juan Carlos Herrera Soto', '1985-05-12', 'Calle Los Sauces #789, San Felipe', 958632587, 'juanherrera85@example.com', 'Juan1985', 'JuanHSoto85#', 1),
