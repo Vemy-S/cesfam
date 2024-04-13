@@ -38,18 +38,21 @@ INSERT INTO user (user_rut, user_fullname,user_birthdate ,
 CREATE TABLE doctor(
     doctor_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     doctor_rut VARCHAR(255) NOT NULL,
-    doctor_name VARCHAR(45) NOT NULL,
-    doctor_lastname VARCHAR(45) NOT NULL,
+    doctor_fullname VARCHAR(45) NOT NULL,
     doctor_phone VARCHAR(15) NOT NULL,
     doctor_email VARCHAR(50) NOT NULL UNIQUE,
     doctor_speciality VARCHAR(100) NOT NULL,
-    doctor_password VARCHAR(50) NOT NULL,
+    doctor_password VARCHAR(50) NOT NULL, -- El doctor tiene clave unica o password?
 
     cesfam_id INT,
 
     FOREIGN KEY (cesfam_id) REFERENCES cesfam(cesfam_id)
     
 );
+INSERT INTO doctor (doctor_id, doctor_rut, doctor_name, doctor_fullname, doctor_phone, doctor_email, doctor_speciality, doctor_password)
+VALUES
+(1, 205422704, 'Diego Silva Romero Lopez', '958645243', 'DiegoSg@gmail.com', '?','Medico general', 1),
+(1, 205431704, 'Bastian Silva Rodrigo Olivares', '958795243', 'BastiSilva@gmail.com', '?','Medico general', 2);
 
 CREATE TABLE medical_appointment(
     appointment_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -57,6 +60,7 @@ CREATE TABLE medical_appointment(
     appointment_status BOOLEAN DEFAULT FALSE,
     appointment_title VARCHAR(255) NOT NULL,
     appointment_description VARCHAR(255) NOT NULL,
+    
 
     user_rut INT,
     doctor_id INT,
