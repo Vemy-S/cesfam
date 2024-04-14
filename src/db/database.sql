@@ -22,7 +22,6 @@ CREATE TABLE user(
     user_address VARCHAR (255),
     user_phone INT NOT NULL,
     user_email VARCHAR(100) UNIQUE NOT NULL,
-    user_password VARCHAR(100) NOT NULL,
     user_uniquekey VARCHAR(100) UNIQUE NOT NULL,
 
     cesfam_id INT,
@@ -30,35 +29,29 @@ CREATE TABLE user(
     FOREIGN KEY(cesfam_id) REFERENCES cesfam(cesfam_id)
 );
 
-INSERT INTO user (user_rut, user_fullname,user_birthdate ,
- user_address, user_phone,user_email, user_password, user_uniquekey, cesfam_id ) VALUES (205422706, 'Jeremy William Vega Fuenzalida', '2001-04-06', 'Villa los Alamos, San Felipe', 958645204, 'jeremyvf16@gmail.com', 'Jeremy2054','JVemyS1$',1 );
-
-
 
 CREATE TABLE doctor(
-    doctor_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    doctor_rut VARCHAR(255) NOT NULL,
+    doctor_rut INT PRIMARY KEY NOT NULL,
     doctor_fullname VARCHAR(45) NOT NULL,
-    doctor_phone VARCHAR(15) NOT NULL,
+    doctor_phone INT NOT NULL,
     doctor_email VARCHAR(50) NOT NULL UNIQUE,
     doctor_speciality VARCHAR(100) NOT NULL,
-    doctor_password VARCHAR(50) NOT NULL, -- El doctor tiene clave unica o password?
-
+    doctor_password VARCHAR(50) NOT NULL, 
     cesfam_id INT,
 
     FOREIGN KEY (cesfam_id) REFERENCES cesfam(cesfam_id)
     
 );
-INSERT INTO doctor (doctor_id, doctor_rut, doctor_name, doctor_fullname, doctor_phone, doctor_email, doctor_speciality, doctor_password)
+INSERT INTO doctor (doctor_rut, doctor_fullname, doctor_phone, doctor_email, doctor_speciality, doctor_password, cesfam_id)
 VALUES
-( 205422704, 'Diego Silva Romero Lopez', '958645243', 'DiegoSg@gmail.com', '?','Medico general', 1),
-( 205431704, 'Bastian Silva Rodrigo Olivares', '958795243', 'BastiSilva@gmail.com', '?','Medico general', 2);
-( 205472705, 'María González Pérez', '968745123', 'MariaGonzalez@gmail.com', '?', 'Pediatra',2 ),
-( 205452706, 'Carlos Martínez Rodríguez', '978635478', 'CarlosMartinez@gmail.com', '?', 'Cardiólogo', 1),
-( 205492707, 'Ana López García', '947856321', 'AnaLopez@gmail.com', '?', 'Dermatólogo', 1),
-( 205402708, 'Javier Pérez Sánchez', '956734589', 'JavierPerez@gmail.com', '?', 'Psiquiatra', 2),
-( 205421709, 'Laura Rodríguez Martínez', '965478213', 'LauraRodriguez@gmail.com', '?', 'Ginecólogo', 1),
-( 205456710, 'Pedro Sánchez López', '978563214', 'PedroSanchez@gmail.com', '?', 'Oftalmólogo', 2);
+( 205422704, 'Diego Silva Romero Lopez', 958645243, 'DiegoSg@gmail.com','Medico General','DiegoRomero32', 1),
+( 205431704, 'Bastian Silva Rodrigo Olivares', 958795243, 'BastiSilva@gmail.com','Medico general', 'BastRodrigo45', 2),
+( 205472705, 'María González Pérez', 968745123, 'MariaGonzalez@gmail.com',  'Pediatra', 'GonzalezPe34',2 ),
+( 205452706, 'Carlos Martínez Rodríguez', 978635478, 'CarlosMartinez@gmail.com', 'Cardiólogo','MartCa94', 1),
+( 205492707, 'Ana López García', 947856321, 'AnaLopez@gmail.com',  'Dermatólogo','LopGarc94', 1),
+( 205402708, 'Javier Pérez Sánchez', 956734589, 'JavierPerez@gmail.com',  'Psiquiatra','JavierSahez65', 2),
+( 205421709, 'Laura Rodríguez Martínez', 965478213, 'LauraRodriguez@gmail.com',  'Ginecólogo','Rodriguez99', 1),
+( 205456710, 'Pedro Sánchez López', 978563214, 'PedroSanchez@gmail.com', 'Oftalmólogo','LoPeSa942', 2);
 
 CREATE TABLE medical_appointment(
     appointment_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -69,11 +62,11 @@ CREATE TABLE medical_appointment(
     
 
     user_rut INT,
-    doctor_id INT,
+    doctor_rut INT,
     cesfam_id INT,
 
     FOREIGN KEY (user_rut) REFERENCES user (user_rut),
-    FOREIGN KEY (doctor_id) REFERENCES doctor (doctor_id),
+    FOREIGN KEY (doctor_rut) REFERENCES doctor (doctor_rut),
     FOREIGN KEY (cesfam_id) REFERENCES cesfam (cesfam_id)
 
 );
