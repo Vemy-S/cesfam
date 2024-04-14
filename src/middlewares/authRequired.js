@@ -18,3 +18,5 @@ const authRequired = (req, res, next) => {
 }
 
 export default authRequired
+
+

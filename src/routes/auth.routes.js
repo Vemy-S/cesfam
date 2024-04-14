@@ -1,6 +1,6 @@
 import {Router} from 'express'
 import {pool} from '../db.js'
-import {login, register, profile, logout} from '../controllers/auth.controllers.js'
+import {loginuser, register, profile, logout, logindoctor, } from '../controllers/auth.controllers.js'
 import authRequired from '../middlewares/authRequired.js'
 
 const router = Router()
@@ -10,9 +10,10 @@ router.get('/testconnect', async (req, res)=>{
     res.send(query)
 })
 
-router.post('/login', login)
+router.post('/loginuser', loginuser)
 router.post('/logout', logout)
 router.get('/profile', authRequired , profile )
+router.post('/logindoctor', logindoctor)
 
 
 export default router
