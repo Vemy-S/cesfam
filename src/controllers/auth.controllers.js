@@ -25,7 +25,28 @@ export const loginuser = async (req, res ) =>{
     }
 }
 
-export const logindoctor = (req, res) =>{
+export const logindoctor = async (req, res) =>{
+    const {doctor_rut, doctor_password} = req.body
+    try {
+       const findDoctor = await pool.query('SELECT * from doctor WHERE doctor_rut = ? AND doctor_password = ?', [doctor_rut, doctor_password])
+
+       const doctor = findDoctor[0]
+
+       if(doctor.length === 0){
+            return res.status(404).json({"message": "Rut or password is invalid"})
+       }
+
+       const token = await createAccesToken({doctor})
+       res.cookie('token', token)
+
+       res.send(findDoctor)
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({"message": "Internal Server Error"});
+
+
+    }
     
 }
 
