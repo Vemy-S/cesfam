@@ -5,8 +5,8 @@ export const loginuser = async (req, res ) =>{
     const {user_rut, user_uniquekey} = req.body
     try {
        const findUser = await pool.query('SELECT * from user WHERE user_rut = ? AND user_uniquekey = ?', [user_rut, user_uniquekey])
-        
-        const user = findUser[0]
+       
+       const user = findUser[0]
 
         console.log(`email del usuario ${user.user_email}`)
         
