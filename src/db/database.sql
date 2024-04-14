@@ -51,8 +51,14 @@ CREATE TABLE doctor(
 );
 INSERT INTO doctor (doctor_id, doctor_rut, doctor_name, doctor_fullname, doctor_phone, doctor_email, doctor_speciality, doctor_password)
 VALUES
-(1, 205422704, 'Diego Silva Romero Lopez', '958645243', 'DiegoSg@gmail.com', '?','Medico general', 1),
-(1, 205431704, 'Bastian Silva Rodrigo Olivares', '958795243', 'BastiSilva@gmail.com', '?','Medico general', 2);
+( 205422704, 'Diego Silva Romero Lopez', '958645243', 'DiegoSg@gmail.com', '?','Medico general', 1),
+( 205431704, 'Bastian Silva Rodrigo Olivares', '958795243', 'BastiSilva@gmail.com', '?','Medico general', 2);
+( 205472705, 'María González Pérez', '968745123', 'MariaGonzalez@gmail.com', '?', 'Pediatra',2 ),
+( 205452706, 'Carlos Martínez Rodríguez', '978635478', 'CarlosMartinez@gmail.com', '?', 'Cardiólogo', 1),
+( 205492707, 'Ana López García', '947856321', 'AnaLopez@gmail.com', '?', 'Dermatólogo', 1),
+( 205402708, 'Javier Pérez Sánchez', '956734589', 'JavierPerez@gmail.com', '?', 'Psiquiatra', 2),
+( 205421709, 'Laura Rodríguez Martínez', '965478213', 'LauraRodriguez@gmail.com', '?', 'Ginecólogo', 1),
+( 205456710, 'Pedro Sánchez López', '978563214', 'PedroSanchez@gmail.com', '?', 'Oftalmólogo', 2);
 
 CREATE TABLE medical_appointment(
     appointment_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,

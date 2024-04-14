@@ -1,7 +1,7 @@
 import {pool} from '../db.js'
 import { createAccesToken } from '../libs/jwt.js'
 
-export const login = async (req, res ) =>{
+export const loginuser = async (req, res ) =>{
     const {user_rut, user_uniquekey} = req.body
     try {
        const findUser = await pool.query('SELECT * from user WHERE user_rut = ? AND user_uniquekey = ?', [user_rut, user_uniquekey])
@@ -25,14 +25,10 @@ export const login = async (req, res ) =>{
     }
 }
 
-
-
-export const logout = (req, res) =>{
-    res.cookie('token', '', {
-        expires: new Date(0)
-    })
-    res.sendStatus(200)
+export const logindoctor = (req, res) =>{
+    
 }
+
 
 export const register = (req, res ) =>{
     try {
@@ -48,4 +44,12 @@ export const profile = (req, res) =>{
     } catch (error) {
         console.log(error) // temporal
     }
+}
+
+
+export const logout = (req, res) =>{
+    res.cookie('token', '', {
+        expires: new Date(0)
+    })
+    res.sendStatus(200)
 }
