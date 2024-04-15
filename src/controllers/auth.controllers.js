@@ -17,7 +17,7 @@ export const loginuser = async (req, res ) =>{
         const token = await createAccesToken({user})
         res.cookie('token', token)
 
-       res.send(findUser)
+       res.json({"message":"Login succesfully"})
 
     } catch (error) {
         console.log(error);

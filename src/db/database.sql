@@ -23,6 +23,7 @@ CREATE TABLE user(
     user_phone INT NOT NULL,
     user_email VARCHAR(100) UNIQUE NOT NULL,
     user_uniquekey VARCHAR(100) UNIQUE NOT NULL,
+    user_
 
 
     cesfam_id INT,
@@ -57,7 +58,7 @@ VALUES
 CREATE TABLE medical_appointment(
     appointment_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     appointment_date DATETIME NOT NULL,
-    appointment_status BOOLEAN DEFAULT FALSE,
+    appointment_status BOOLEAN DEFAULT TRUE,
     appointment_title VARCHAR(255) NOT NULL,
     appointment_description VARCHAR(255) NOT NULL,
     
