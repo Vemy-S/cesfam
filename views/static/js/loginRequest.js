@@ -22,6 +22,8 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             // Login successful
             console.log('Login successful');
             console.log(data); // You may handle the response data here
+
+            window.location.href = "http://127.0.0.1:5501/views/auth/index.html"
         } else {
             // Login failed
             console.error(data.message);

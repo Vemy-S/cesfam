@@ -23,7 +23,6 @@ CREATE TABLE user(
     user_phone INT NOT NULL,
     user_email VARCHAR(100) UNIQUE NOT NULL,
     user_uniquekey VARCHAR(100) UNIQUE NOT NULL,
-    user_
 
 
     cesfam_id INT,
