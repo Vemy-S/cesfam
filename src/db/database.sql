@@ -84,6 +84,32 @@ VALUES
 (9, '2024/04/16 09:00:00', TRUE, '108753621', '205452706',1),
 (10, '2024/04/16 09:30:00', TRUE, '209876234', '205456710',2);
 
+select * from medical_appointment;
+
+CREATE TABLE medical_reservation(
+    reservation_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    appointment_id INT,
+    user_rut INT, 
+
+    FOREIGN KEY (user_rut) REFERENCES user (user_rut),
+    FOREIGN KEY (appointment_id) REFERENCES medical_appointment (appointment_id)
+
+);
+INSERT INTO medical_reservation(reservation_id, appointment_id, user_rut)
+VALUES
+(1, 1, '210009361'),
+(2, 2, '205422706'),
+(3, 3, '107896512'),
+(4, 4, '109864238'),
+(5, 5, '105422708'),
+(6, 6, '207896514'),
+(7, 7, '207896513'),
+(8, 8, '205216789'),
+(9, 9, '108753621'),
+(10, 10, '209876234');
+
+Select * from medical_reservation;
+
 DROP TABLE user;
 DROP TABLE medical_appointment;
 DROP TABLE doctor;
