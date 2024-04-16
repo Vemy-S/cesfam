@@ -1,10 +1,10 @@
 import {Router} from 'express'
-import { getAppointments } from '../controllers/appointments.controllers.js'
+import { getAppointments, makeReservation } from '../controllers/appointments.controllers.js'
 
 const router = Router()
 
 router.get('/appointments', getAppointments)
-
+router.post('/appointments', makeReservation)
 
 
 
