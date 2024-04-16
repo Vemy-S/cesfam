@@ -12,8 +12,11 @@ router.get('/testconnect', async (req, res)=>{
 
 router.post('/loginuser', loginuser)
 router.post('/logout', logout)
-router.get('/profile', authRequired , profile )
 router.post('/logindoctor', logindoctor)
+
+
+router.get('/index', authRequired , profile )
+router.get('/loginuser')
 
 
 export default router
