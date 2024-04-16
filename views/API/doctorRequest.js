@@ -1,8 +1,10 @@
 document.getElementById('loginForm').addEventListener('submit', async function(event) {
     event.preventDefault();
 
+    console.log('Conecto')
+
     const rut = document.getElementById('doctor_rut').value;
-    const uniqueKey = document.getElementById('doctor_password').value;
+    const password = document.getElementById('doctor_password').value;
 
     try {
         const response = await fetch('http://127.0.0.1:4000/api/logindoctor', {
