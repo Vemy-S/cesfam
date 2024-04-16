@@ -4,6 +4,7 @@ import {loginuser, register, profile, logout, logindoctor, } from '../controller
 import authRequired from '../middlewares/authRequired.js'
 import {staticLogin} from '../controllers/static.controllers.js'
 
+
 const router = Router()
 
 router.get('/testconnect', async (req, res)=>{
