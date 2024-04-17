@@ -21,11 +21,13 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         const data = await response.json();
         
         if (response.ok) {
-            // Login successful
+            
             console.log('Login successful');
-            console.log(data); // You may handle the response data here
+            console.log(data); 
+
+            window.location.href = "http://127.0.0.1:5501/views/home/doctor.html"
         } else {
-            // Login failed
+    
             console.error(data.message);
         }
     } catch (error) {

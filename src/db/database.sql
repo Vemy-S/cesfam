@@ -54,20 +54,52 @@ VALUES
 ( 205421709, 'Laura Rodríguez Martínez', 965478213, 'LauraRodriguez@gmail.com',  'Ginecólogo','Rodriguez99', 1),
 ( 205456710, 'Pedro Sánchez López', 978563214, 'PedroSanchez@gmail.com', 'Oftalmólogo','LoPeSa942', 2);
 
-CREATE TABLE medical_appointment(
-    appointment_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    appointment_date DATETIME NOT NULL,
-    appointment_status BOOLEAN DEFAULT TRUE,
-    
 
+<<<<<<< HEAD
+=======
+CREATE TABLE medicalhour(
+    medicalhour_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    medicalhour_time TIME NOT NULL,
+    medicalhour_status BOOLEAN DEFAULT TRUE,
+
+>>>>>>> d9ada823be52691d5fb108b3a8479a3abddf5b81
     doctor_rut INT,
     cesfam_id INT,
 
     FOREIGN KEY (doctor_rut) REFERENCES doctor (doctor_rut),
     FOREIGN KEY (cesfam_id) REFERENCES cesfam (cesfam_id)
+);
+
+INSERT INTO medicalhour (medicalhour_id, medicalhour_time, medicalhour_status, doctor_rut, cesfam_id)
+VALUES
+(1, '08:00:00', TRUE, 205422704, 1),
+(2, '08:30:00', TRUE, 205452706, 1),
+(3, '09:00:00', TRUE, 205402708, 2),
+(4, '09:30:00', TRUE, 205456710, 2),
+(5, '10:00:00', TRUE, 205421709, 1),
+(6, '10:30:00', TRUE, 205456710, 2),
+(7, '11:00:00', TRUE, 205472705, 2),
+(8, '11:30:00', TRUE, 205492707, 1),
+(9, '12:00:00', TRUE, 205452706, 1),
+(10, '12:30:00', TRUE, 205456710, 2);
+
+
+CREATE TABLE hour_reservation(
+    reservation_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    reservation_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    medicalhour_time TIME NOT NULl,
+    medicalhour_id INT,
+    user_rut INT,
+    
+    
+
+    FOREIGN KEY (medicalhour_id) REFERENCES medicalhour(medicalhour_id),
+    FOREIGN KEY (user_rut) REFERENCES user(user_rut)
 
 );
 
+<<<<<<< HEAD
 INSERT INTO medical_appointment(appointment_id, appointment_date, appointment_status, doctor_rut, cesfam_id)
 VALUES
 (1, '2024/04/16 08:00:00', TRUE,'205422704',1),
@@ -106,6 +138,10 @@ VALUES
 (10, 10, '209876234');
 
 Select * from medical_reservation;
+=======
+
+
+>>>>>>> d9ada823be52691d5fb108b3a8479a3abddf5b81
 
 DROP TABLE user;
 DROP TABLE medical_appointment;
@@ -136,3 +172,6 @@ VALUES
 (109864238, 'Marcela Paz Torres Soto', '1989-12-20', 'Av. Las Camelias #789, Viña del Mar', 974589634, 'marcelatorres@example.com',  'MarcelaTSoto89@', 2),
 (207896514, 'Javier Alejandro Ruiz González', '1981-08-15', 'Av. Las Gardenias #987, Viña del Mar', 974125838, 'javierruiz@example.com',  'JavierRGonzalez81@', 2),
 (207444514, ' Alejandro Ruiz González', '1981-08-15', 'Av. Las Gardenias #987, Viña del Mar', 974192838, 'javier12z@example.com',  'JavierRlez81@', 1);
+
+
+

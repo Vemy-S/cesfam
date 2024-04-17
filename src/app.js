@@ -3,6 +3,7 @@ import morgan from 'morgan'
 import authRoutes from './routes/auth.routes.js'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
+import appointmentsRoutes from './routes/appointments.routes.js'
 
 
 const app = express()
@@ -14,6 +15,7 @@ app.use(cookieParser())
 app.use(express.json())
 
 app.use('/api', authRoutes)
+app.use('/api', appointmentsRoutes)
 
 
 export default app
