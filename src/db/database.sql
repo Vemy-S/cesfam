@@ -54,34 +54,52 @@ VALUES
 ( 205421709, 'Laura Rodríguez Martínez', 965478213, 'LauraRodriguez@gmail.com',  'Ginecólogo','Rodriguez99', 1),
 ( 205456710, 'Pedro Sánchez López', 978563214, 'PedroSanchez@gmail.com', 'Oftalmólogo','LoPeSa942', 2);
 
-CREATE TABLE medical_appointment(
-    appointment_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    appointment_date DATETIME NOT NULL,
-    appointment_status BOOLEAN DEFAULT TRUE,
-    
 
-    user_rut INT,
+CREATE TABLE medical_schedule(
+    schedule_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    schedule_time TIME NOT NULL,
+    schedule_status BOOLEAN DEFAULT TRUE,
+
     doctor_rut INT,
     cesfam_id INT,
 
-    FOREIGN KEY (user_rut) REFERENCES user (user_rut),
     FOREIGN KEY (doctor_rut) REFERENCES doctor (doctor_rut),
     FOREIGN KEY (cesfam_id) REFERENCES cesfam (cesfam_id)
+);
+
+INSERT INTO medical_schedule (schedule_id, schedule_time, schedule_status, doctor_rut, cesfam_id)
+VALUES
+(1, '08:00:00', TRUE, 205422704, 1),
+(2, '08:30:00', TRUE, 205452706, 1),
+(3, '09:00:00', TRUE, 205402708, 2),
+(4, '09:30:00', TRUE, 205456710, 2),
+(5, '10:00:00', TRUE, 205421709, 1),
+(6, '10:30:00', TRUE, 205456710, 2),
+(7, '11:00:00', TRUE, 205472705, 2),
+(8, '11:30:00', TRUE, 205492707, 1),
+(9, '12:00:00', TRUE, 205452706, 1),
+(10, '12:30:00', TRUE, 205456710, 2);
+
+
+CREATE TABLE appointment_reservation(
+    reservation_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    reservation_date DATETIME NOT NULL,
+    
+    user_rut INT,
+    appointment_id INT,
+
+    FOREIGN KEY (appointment_id) REFERENCES medical_appointment(appointment_id)
+    FOREIGN KEY (user_rut) REFERENCES user(user_rut)
 
 );
 
-INSERT INTO medical_appointment(appointment_id, appointment_date, appointment_status, user_rut, doctor_rut, cesfam_id)
-VALUES
-(1, '2024/04/16 08:00:00', TRUE, '210009361', '205422704',1),
-(2, '2024/04/16 08:00:00', TRUE, '205422706', '205452706',1),
-(3, '2024/04/16 08:00:00', TRUE, '107896512', '205402708',2),
-(4, '2024/04/16 08:30:00', TRUE, '109864238', '205456710',2),
-(5, '2024/04/16 08:30:00', TRUE, '105422708', '205421709',1),
-(6, '2024/04/16 08:30:00', TRUE, '207896514', '205456710',2),
-(7, '2024/04/16 09:00:00', TRUE, '207896513', '205472705',2),
-(8, '2024/04/16 09:00:00', TRUE, '205216789', '205492707',1),
-(9, '2024/04/16 09:00:00', TRUE, '108753621', '205452706',1),
-(10, '2024/04/16 09:30:00', TRUE, '209876234', '205456710',2);
+
+
+
+
+
+
+
 
 DROP TABLE user;
 DROP TABLE medical_appointment;
