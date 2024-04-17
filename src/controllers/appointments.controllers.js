@@ -1,31 +1,54 @@
 import {pool} from '../db.js'
 
-export const getAppointments = async (req, res) => {
+export const getHours = async (req, res) => {
     try {
-        const appointments = await pool.query('SELECT * FROM medical_schedule WHERE appointment_status = true')
-        res.json(appointments)
+        const hours = await pool.query('SELECT * FROM medicalhour WHERE medicalhour_id = true')
+        res.json(hours)
     } catch (error) {
         console.error(error.message)
     }
+
 }
 
-export const makeReservation = async (req, res) => {
-    const { appointment_id, user_rut } = req.body;
+export const hourReservation = async (req, res) => {
+    const {medicalhour_id, user_rut, medicalhour_time} = req.body
     try {
-        //comprueba disponibilidad
-        const cita = await pool.query('SELECT * FROM medical_schedule WHERE appointment_id = ? AND appointment_status = true', [appointment_id]);
-        if (cita.rows.length === 0) {
-            return res.status(404).json({ error: 'Appointment not avalaible' });
+        //Verificar y desactivar hora
+        const status = await pool.query('SELECT medicalhour_status FROM medicalhour WHERE medicalhour_id = ?', [medicalhour_id])
+        const status_time = status[0][0].medicalhour_status
+        if(status_time === 0){
+            return res.status(404).json({"message":"Time not available"})
+        }
+        const updateHour = await pool.query('UPDATE medicalhour SET medicalhour_status = false WHERE medicalhour_id = ?', [medicalhour_id])
+        const takeHour = await pool.query('INSERT INTO hour_reservation (medicalhour_id, user_rut, medicalhour_time) VALUES (?,?,?)', [medicalhour_id ,user_rut, medicalhour_time])
+
+        res.json({"message":"Reserved time succesfully"})
+    } catch (error) {
+        console.log(error.message)
+    }
+};
+
+export const cancelReservation = async (req, res) => {
+    const {medicalhour_id, user_rut} = req.body
+    try {
+        const status = await pool.query('SELECT medicalhour_status FROM medicalhour WHERE medicalhour_id = ?', [medicalhour_id])
+        const status_time = status[0][0].medicalhour_status
+
+        if(status_time === 1){
+            return res.status(404).json({"message":"Time not reserved"})
         }
 
-        // registrar
-        await pool.query('INSERT INTO appointment_reservation (appointment_id, user_rut) VALUES (?, ?)', [appointment_id, user_rut]);
+        const updateHour = await pool.query('UPDATE medicalhour SET medicalhour_status = TRUE WHERE medicalhour_id = ?', medicalhour_id)
+        const cancelHour = await pool.query('DELETE FROM hour_reservation WHERE medicalhour_id = ? AND user_rut = ?', [medicalhour_id, user_rut])
 
-        // Actualizar
-        await pool.query('UPDATE medical_schedule SET appointment_status = false WHERE appointment_id = ?', [appointment_id]);
-        res.json({ message: 'Appointment taken successfully' });
+        res.json({"message":"Reservation canceled"})
+        
     } catch (error) {
-        console.error(error.message);
-        res.status(500).json({ error: 'Server internal error' });
+        console.log(error.message)
     }
 }
+
+
+
+
+  

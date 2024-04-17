@@ -55,10 +55,10 @@ VALUES
 ( 205456710, 'Pedro Sánchez López', 978563214, 'PedroSanchez@gmail.com', 'Oftalmólogo','LoPeSa942', 2);
 
 
-CREATE TABLE medical_schedule(
-    schedule_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    schedule_time TIME NOT NULL,
-    schedule_status BOOLEAN DEFAULT TRUE,
+CREATE TABLE medicalhour(
+    medicalhour_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    medicalhour_time TIME NOT NULL,
+    medicalhour_status BOOLEAN DEFAULT TRUE,
 
     doctor_rut INT,
     cesfam_id INT,
@@ -67,7 +67,7 @@ CREATE TABLE medical_schedule(
     FOREIGN KEY (cesfam_id) REFERENCES cesfam (cesfam_id)
 );
 
-INSERT INTO medical_schedule (schedule_id, schedule_time, schedule_status, doctor_rut, cesfam_id)
+INSERT INTO medicalhour (medicalhour_id, medicalhour_time, medicalhour_status, doctor_rut, cesfam_id)
 VALUES
 (1, '08:00:00', TRUE, 205422704, 1),
 (2, '08:30:00', TRUE, 205452706, 1),
@@ -81,22 +81,20 @@ VALUES
 (10, '12:30:00', TRUE, 205456710, 2);
 
 
-CREATE TABLE appointment_reservation(
+CREATE TABLE hour_reservation(
     reservation_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    reservation_date DATETIME NOT NULL,
-    
-    user_rut INT,
-    appointment_id INT,
+    reservation_date DATETIME DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (appointment_id) REFERENCES medical_appointment(appointment_id)
+    medicalhour_time TIME NOT NULl,
+    medicalhour_id INT,
+    user_rut INT,
+    
+    
+
+    FOREIGN KEY (medicalhour_id) REFERENCES medicalhour(medicalhour_id),
     FOREIGN KEY (user_rut) REFERENCES user(user_rut)
 
 );
-
-
-
-
-
 
 
 
@@ -130,3 +128,6 @@ VALUES
 (109864238, 'Marcela Paz Torres Soto', '1989-12-20', 'Av. Las Camelias #789, Viña del Mar', 974589634, 'marcelatorres@example.com',  'MarcelaTSoto89@', 2),
 (207896514, 'Javier Alejandro Ruiz González', '1981-08-15', 'Av. Las Gardenias #987, Viña del Mar', 974125838, 'javierruiz@example.com',  'JavierRGonzalez81@', 2),
 (207444514, ' Alejandro Ruiz González', '1981-08-15', 'Av. Las Gardenias #987, Viña del Mar', 974192838, 'javier12z@example.com',  'JavierRlez81@', 1);
+
+
+

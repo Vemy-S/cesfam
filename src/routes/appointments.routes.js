@@ -1,13 +1,14 @@
-import {Router} from 'express'
-import { getAppointments, makeReservation } from '../controllers/appointments.controllers.js'
+import { Router } from "express";
+import {
+  getHours,
+  hourReservation,
+  cancelReservation,
+} from "../controllers/appointments.controllers.js";
 
-const router = Router()
+const router = Router();
 
-router.get('/appointments', getAppointments)
-router.post('/appointments', makeReservation)
+router.get("/appointments", getHours);
+router.post("/appointments", hourReservation);
+router.delete("/appointments", cancelReservation);
 
-
-
-
-
-export default router
+export default router;
