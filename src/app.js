@@ -4,11 +4,12 @@ import authRoutes from './routes/auth.routes.js'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import appointmentsRoutes from './routes/appointments.routes.js'
+import {cronReset} from './Automate/resetTime.js'
 
 
 const app = express()
 
-
+cronReset();
 app.use(cors())
 app.use(morgan('dev'))
 app.use(cookieParser())
