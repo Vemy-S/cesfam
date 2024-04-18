@@ -24,7 +24,7 @@ CREATE TABLE user(
     user_email VARCHAR(100) UNIQUE NOT NULL,
     user_uniquekey VARCHAR(100) UNIQUE NOT NULL,
     user_hourstatus BOOLEAN DEFAULT FALSE,
-
+	
     cesfam_id INT,
 
     FOREIGN KEY(cesfam_id) REFERENCES cesfam(cesfam_id)
@@ -67,18 +67,37 @@ CREATE TABLE medicalhour(
     FOREIGN KEY (cesfam_id) REFERENCES cesfam (cesfam_id)
 );
 
-INSERT INTO medical_appointment(appointment_id, appointment_date, appointment_status, user_rut, doctor_rut, cesfam_id)
+INSERT INTO medicalhour (medicalhour_id, medicalhour_time, medicalhour_status, doctor_rut, cesfam_id)
 VALUES
-(1, '2024/04/16 08:00:00', TRUE, '210009361', '205422704',1),
-(2, '2024/04/16 08:00:00', TRUE, '205422706', '205452706',1),
-(3, '2024/04/16 08:00:00', TRUE, '107896512', '205402708',2),
-(4, '2024/04/16 08:30:00', TRUE, '109864238', '205456710',2),
-(5, '2024/04/16 08:30:00', TRUE, '105422708', '205421709',1),
-(6, '2024/04/16 08:30:00', TRUE, '207896514', '205456710',2),
-(7, '2024/04/16 09:00:00', TRUE, '207896513', '205472705',2),
-(8, '2024/04/16 09:00:00', TRUE, '205216789', '205492707',1),
-(9, '2024/04/16 09:00:00', TRUE, '108753621', '205452706',1),
-(10, '2024/04/16 09:30:00', TRUE, '209876234', '205456710',2);
+(1, '08:00:00', TRUE, 205422704, 1),
+(2, '08:30:00', TRUE, 205452706, 1),
+(3, '09:00:00', TRUE, 205402708, 2),
+(4, '09:30:00', TRUE, 205456710, 2),
+(5, '10:00:00', TRUE, 205421709, 1),
+(6, '10:30:00', TRUE, 205456710, 2),
+(7, '11:00:00', TRUE, 205472705, 2),
+(8, '11:30:00', TRUE, 205492707, 1),
+(9, '12:00:00', TRUE, 205452706, 1),
+(10, '12:30:00', TRUE, 205456710, 2);
+
+
+CREATE TABLE hour_reservation(
+    reservation_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    reservation_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    medicalhour_time TIME NOT NULl,
+    medicalhour_id INT,
+    user_rut INT,
+    
+    
+
+    FOREIGN KEY (medicalhour_id) REFERENCES medicalhour(medicalhour_id),
+    FOREIGN KEY (user_rut) REFERENCES user(user_rut)
+
+);
+
+
+
 
 DROP TABLE user;
 DROP TABLE medical_appointment;
