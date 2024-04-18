@@ -8,18 +8,18 @@
     <title>Reservas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="./static/css/reservation.css" rel="stylesheet">
-    <link rel="shortcut icon" href="logo_cesfam.ico" type="image/x-icon">
+    <link href="../static/css/reservation.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../static/assets/img/logo_cesfam.ico" type="image/x-icon">
 </head>
 
 <body>
     <div class="container py-5">
-        <h1 class="text-center">Horas medicas</h1>
+        <h1 class="text-center" id="title">Horas medicas</h1>
         <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
 
             <div class="col">
                 <div class="card">
-                    <img src="JUAN-PABLO-CAMACHO-WEB-1.jpg.webp" class="card-img-top" alt="...">
+                    <img src="../static/assets/img/Doctor1.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Medicina General</h5>
                         <p class="card-text">Doctor Mario Riquelme Ortiz</p>
@@ -33,7 +33,7 @@
 
             <div class="col">
                 <div class="card">
-                    <img src="roberto.jpg" class="card-img-top" alt="...">
+                    <img src="../static/assets/img/Doctor2.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Medicina General</h5>
                         <p class="card-text">Doctor Juan Estay Foncea</p>
@@ -47,7 +47,7 @@
 
             <div class="col">
                 <div class="card">
-                    <img src="CAROLINA-SCHULBACH-WEB.jpg.webp" class="card-img-top" alt="...">
+                    <img src="../static/assets/img/Doctora1.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Medicina General</h5>
                         <p class="card-text">Doctora Carolina Olivares Estay</p>
@@ -61,7 +61,7 @@
 
             <div class="col">
                 <div class="card">
-                    <img src="JUAN-PABLO-CAMACHO-WEB-1.jpg.webp" class="card-img-top" alt="...">
+                    <img src="../static/assets/img/Doctor1.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Medicina General</h5>
                         <p class="card-text">Doctor Mario Riquelme Ortiz</p>
@@ -75,7 +75,7 @@
 
             <div class="col">
                 <div class="card">
-                    <img src="roberto.jpg" class="card-img-top" alt="...">
+                    <img src="../static/assets/img/Doctor2.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Medicina General</h5>
                         <p class="card-text">Doctor Juan Estay Foncea</p>
@@ -90,7 +90,7 @@
 
             <div class="col">
                 <div class="card">
-                    <img src="CAROLINA-SCHULBACH-WEB.jpg.webp" class="card-img-top" alt="...">
+                    <img src="../static/assets/img/Doctora1.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Medicina General</h5>
                         <p class="card-text">Doctora Carolina Olivares Estay</p>
@@ -104,7 +104,7 @@
 
              <div class="col">
                 <div class="card">
-                    <img src="JUAN-PABLO-CAMACHO-WEB-1.jpg.webp" class="card-img-top" alt="...">
+                    <img src="../static/assets/img/Doctor1.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Medicina General</h5>
                         <p class="card-text">Doctor Mario Riquelme Ortiz</p>
@@ -119,7 +119,7 @@
 
             <div class="col">
                 <div class="card">
-                    <img src="roberto.jpg" class="card-img-top" alt="...">
+                    <img src="../static/assets/img/Doctor2.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Medicina General</h5>
                         <p class="card-text">Doctor Juan Estay Foncea</p>
@@ -133,7 +133,7 @@
 
             <div class="col">
                 <div class="card">
-                    <img src="CAROLINA-SCHULBACH-WEB.jpg.webp" class="card-img-top" alt="...">
+                    <img src="../static/assets/img/Doctora1.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Medicina General</h5>
                         <p class="card-text">Doctora Carolina Olivares Estay</p>
@@ -148,7 +148,7 @@
 
             <div class="col">
                 <div class="card">
-                    <img src="JUAN-PABLO-CAMACHO-WEB-1.jpg.webp" class="card-img-top" alt="...">
+                    <img src="../static/assets/img/Doctor1.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Medicina General</h5>
                         <p class="card-text">Doctor Mario Riquelme Ortiz</p>
@@ -171,31 +171,45 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <div class="mb-3">
-                            <label for="medicalhour_id" class="form-label">Rut</label>
-                            <input type="hidden" class="form-control" id="medicalhour_id" required>
-                        </div>
-
                         <fieldset disabled>
                             <div class="mb-3">
                                 <label for="rut" class="form-label">Rut</label>
                                 <input type="text" class="form-control" id="rut" required>
                             </div>
                         </fieldset>
+
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" required>
                         </div>
+
                         <fieldset disabled>
                             <div class="mb-3">
                                 <label for="hora" class="form-label">Hora Medica</label>
                                 <input type="text" class="form-control" id="hora" required>
                             </div>
                         </fieldset>
+
+                        <div class="mb-3">
+                            <label for="carga" class="form-label">Carga</label>
+                            <select class="form-select form-select-lg mb-3" aria-label="Large select example" required>
+                                <option selected value="">Seleccione una opción</option>
+                                <option value="1">Hora para mi</option>
+                                <option value="2">Hora para mi hijo</option>
+                            </select>
+                        </div>
+
                         <div class="mb-3">
                             <label for="descripcion" class="form-label">Descripción</label>
-                            <textarea class="form-control" id="descripcion" rows="3"></textarea>
+                            <textarea class="form-control" id="descripcion" rows="3" required></textarea>
                         </div>
+
+                        <div class="mb-3">
+                            <label for="medicalhour_id" class="form-label"></label>
+                            <input type="hidden" class="form-control" id="medicalhour_id" required>
+                        </div>
+
+
                         <button type="submit" class="btn btn-primary">Enviar</button>
                     </form>
                 </div>
