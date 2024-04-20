@@ -1,14 +1,15 @@
 import { Router } from "express";
+import authRequired from "../middlewares/authRequired.js";
 import {
-  getHours,
+  getReservations,
   hourReservation,
   cancelReservation,
 } from "../controllers/appointments.controllers.js";
 
 const router = Router();
 
-router.get("/appointments", getHours);
-router.post("/appointments", hourReservation);
-router.delete("/appointments", cancelReservation);
+router.get("/appointments", authRequired ,getReservations);
+router.post("/appointments", authRequired ,hourReservation);
+router.delete("/appointments", authRequired ,cancelReservation);
 
 export default router;

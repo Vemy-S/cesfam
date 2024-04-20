@@ -6,6 +6,8 @@ import cors from 'cors'
 import appointmentsRoutes from './routes/appointments.routes.js'
 import {cronReset} from './Automate/resetTime.js'
 
+import testRoutes from './routes/TEST.routes.js'
+
 
 const app = express()
 
@@ -17,6 +19,8 @@ app.use(express.json())
 
 app.use('/api', authRoutes)
 app.use('/api', appointmentsRoutes)
+
+app.use('/test', testRoutes)
 
 
 export default app
