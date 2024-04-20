@@ -23,13 +23,8 @@ CREATE TABLE user(
     user_phone INT NOT NULL,
     user_email VARCHAR(100) UNIQUE NOT NULL,
     user_uniquekey VARCHAR(100) UNIQUE NOT NULL,
-<<<<<<< HEAD
-    
-
-=======
     user_hourstatus BOOLEAN DEFAULT FALSE,
 	
->>>>>>> 70c721898a1458304aef8ce7cf939f356b3a2c93
     cesfam_id INT,
 
     FOREIGN KEY(cesfam_id) REFERENCES cesfam(cesfam_id)

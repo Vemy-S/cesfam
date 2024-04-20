@@ -1,23 +1,30 @@
 import { pool } from "../db.js";
 
-export const getHours = async (req, res) => {
+export const getReservations = async (req, res) => {
+  const loginUser = req.body.user_rut; 
   try {
     const hours = await pool.query(
-      "SELECT * FROM medicalhour WHERE medicalhour_status = TRUE"
+      "SELECT * FROM hour_reservation WHERE user_rut = ?", [loginUser]
     );
+
     res.json(hours);
+
   } catch (error) {
     console.error(error.message);
   }
 };
 
 export const hourReservation = async (req, res) => {
-  const { medicalhour_id, user_rut, medicalhour_time } = req.body;
+  const { medicalhour_id, medicalhour_time } = req.body;
+  console.log(`Informacion del usuario ${req.body.user_rut}`)
+  const loginUser = req.body.user_rut;
+  
+
   try {
     //Extraer STATUS
     const statusUser = await pool.query(
       "SELECT user_hourstatus FROM user WHERE user_rut = ?",
-      [user_rut]
+      [loginUser]
     );
     const status = await pool.query(
       "SELECT medicalhour_status FROM medicalhour WHERE medicalhour_id = ?",
@@ -34,7 +41,7 @@ export const hourReservation = async (req, res) => {
       return res
         .status(404)
         .json({ message: "User already has a reserved time" });
-    }
+  }
 
     //Updates
     const updateHour = await pool.query(
@@ -43,13 +50,13 @@ export const hourReservation = async (req, res) => {
     );
     const updatehourUser = await pool.query(
       "UPDATE user SET user_hourstatus = TRUE WHERE user_rut = ?",
-      [user_rut]
+      [loginUser]
     );
 
     //Tomar hora
     const takeHour = await pool.query(
       "INSERT INTO hour_reservation (medicalhour_id, user_rut, medicalhour_time) VALUES (?,?,?)",
-      [medicalhour_id, user_rut, medicalhour_time]
+      [medicalhour_id, loginUser, medicalhour_time]
     );
 
     res.json({ message: "Reserved time succesfully" });
@@ -59,7 +66,8 @@ export const hourReservation = async (req, res) => {
 };
 
 export const cancelReservation = async (req, res) => {
-  const { medicalhour_id, user_rut } = req.body;
+  const { medicalhour_id } = req.body;
+  const { user_rut } = req.user;
   try {
     const status = await pool.query(
       "SELECT medicalhour_status FROM medicalhour WHERE medicalhour_id = ?",
