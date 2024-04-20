@@ -3,7 +3,7 @@ import { pool } from "../db.js";
 
 export const cronReset = () => {
   return cron.schedule(
-    "45 23 * * *",
+    "03 22 * * *",
     async () => {
       try {
         const resetTime = await pool.query(

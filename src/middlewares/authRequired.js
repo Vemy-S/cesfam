@@ -9,9 +9,12 @@ const authRequired = (req, res, next) => {
     jwt.verify(token, 'losgey', (err, decoded) => {
         if(err) return res.status(403).json({"message":"Invalid token"})
 
-        req.user = decoded
+        //extraer informacion del token
+        const usuario = decoded.user[0]  
 
-        console.log(decoded)
+        req.user = usuario
+        
+        console.log(`=>Depuracion: Informacion desde el Token RUT:${req.user.user_rut}  NAME:${req.user.user_fullname}`)
 
         next()
     })
