@@ -3,9 +3,9 @@ import { pool } from "../db.js";
 import twilio from "twilio";
 import nodemailer from "nodemailer";
 
-const accountSid = "ACfa4786ad324dab80b9634fcbd1715db3"; // Tu SID de cuenta de Twilio
-const authToken = "f56955b857c51d6b436ff382c614f597"; // Tu token de autenticación de Twilio
-const client = twilio(accountSid, authToken); // Crear cliente Twilio
+const accountSid = ""; 
+const authToken = ""; 
+const client = twilio(accountSid, authToken); 
 
 const router = Router();
 
