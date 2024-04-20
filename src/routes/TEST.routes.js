@@ -3,9 +3,9 @@ import { pool } from "../db.js";
 import twilio from "twilio";
 import nodemailer from "nodemailer";
 
-const accountSid = ""; 
+/* const accountSid = ""; 
 const authToken = ""; 
-const client = twilio(accountSid, authToken); 
+const client = twilio(accountSid, authToken);  */
 
 const router = Router();
 
