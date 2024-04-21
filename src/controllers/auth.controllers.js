@@ -21,6 +21,8 @@ export const loginuser = async (req, res) => {
     const token = await createAccesToken({ user });
     res.cookie("token", token);
 
+    console.log(req.params);
+
     res.json({ message: "Login succesfully" });
   } catch (error) {
     console.log(error);

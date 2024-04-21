@@ -21,7 +21,8 @@ router.post("/loginuser", loginuser);
 router.post("/logout", logout);
 router.post("/logindoctor", logindoctor);
 
-router.get("/index", authRequired, profile);
+router.get("/index", authRequired, profile); // Manda la info del token al ingresar al index.
+
 router.get("/loginuser", staticLogin);
 
 export default router;
