@@ -27,10 +27,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             console.log('Login successful');
             console.log(data); 
 
-<<<<<<< HEAD
             window.location.href = data.redirectToIndex;
-=======
->>>>>>> a96e0da80433e13cc70affa4efbb08dbe154aaf5
         } else {
          
             console.error(data.message);
