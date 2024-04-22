@@ -24,6 +24,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             localStorage.setItem('token', token);
             console.log(token, 'token')
             
+           
             console.log('Login successful');
             console.log(data); 
 
@@ -35,4 +36,4 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     } catch (error) {
         console.error('Error during login:', error);
     }
-});
+});     
