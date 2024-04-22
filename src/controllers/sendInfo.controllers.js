@@ -15,5 +15,30 @@ export const userHistory = async (req, res) => {
   }
 };
 
-// el user_rut  de user tiene que ser el mismo user_rut que la tabla de hour_reservation.
-// Pre condicion de esto es que requiere que el usuario este logeado.
+export const userInfo = async (req, res) =>{
+  const { user_rut } = req.user;
+
+  try {
+    const userInfo = await pool.query(
+      "SELECT * FROM user WHERE user_rut = ?",
+      [user_rut]
+    );
+
+    res.send({
+      rut: userInfo[0][0].user_rut,
+      fullname: userInfo[0][0].user_fullname,
+      user_birthdate: userInfo[0][0].user_birthdate,
+      user_address: userInfo[0][0].user_address,
+      user_phone: userInfo[0][0].user_phone,
+      user_email: userInfo[0][0].user_email,
+      user_hourstatus: userInfo[0][0].user_hourstatus, // Para verificar si tiene hora activa.
+      user_counthours: userInfo[0][0].user_counthours,
+      cesfam_id: userInfo[0][0].cesfam_id,
+    });
+
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+

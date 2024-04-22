@@ -13,17 +13,24 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             body: JSON.stringify({
                 user_rut: rut,
                 user_uniquekey: uniqueKey
-            })
+            }),
+            credentials: 'include'
         });
 
         const data = await response.json();
         
         if (response.ok) {
+             const token = data.token;
+            localStorage.setItem('token', token);
+            console.log(token, 'token')
+            
+           
+
          
             console.log('Login successful');
             console.log(data); 
 
-            window.location.href = "http://127.0.0.1:5501/views/home/index.html"
+            window.location.href = "http://127.0.0.1/4000/index.html"
         } else {
          
             console.error(data.message);

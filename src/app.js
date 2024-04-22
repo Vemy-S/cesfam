@@ -1,29 +1,32 @@
-import express from 'express'
-import morgan from 'morgan'
-import authRoutes from './routes/auth.routes.js'
-import cookieParser from 'cookie-parser'
-import cors from 'cors'
-import appointmentsRoutes from './routes/appointments.routes.js'
-import {cronReset} from './Automate/resetTime.js'
-import sendInfoRoutes from './routes/sendInfo.routes.js'
+import express from "express";
+import morgan from "morgan";
+import authRoutes from "./routes/auth.routes.js";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import appointmentsRoutes from "./routes/appointments.routes.js";
+import { cronReset } from "./Automate/resetTime.js";
+import sendInfoRoutes from "./routes/sendInfo.routes.js";
+import sendRoutes from "./routes/send.routes.js";
+import testRoutes from "./routes/TEST.routes.js";
 
-import testRoutes from './routes/TEST.routes.js'
-
-
-const app = express()
+const app = express();
 
 cronReset();
-app.use(cors())
-app.use(morgan('dev'))
-app.use(cookieParser())
-app.use(express.json())
+
+app.use(express.static("./public"));
+app.use(morgan("dev"));
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(cors());
+
+app.use("/api", authRoutes);
+app.use("/api", appointmentsRoutes);
+app.use("/api", sendInfoRoutes);
+app.use(sendRoutes);
+app.use("/test", testRoutes);
 
 
-app.use('/api', authRoutes)
-app.use('/api', appointmentsRoutes)
-app.use('/api', sendInfoRoutes )
 
-app.use('/test', testRoutes)
-
-
-export default app
+export default app;

@@ -7,8 +7,7 @@ import {
 
 const router = Router();
 
-router.post("/appointments", authRequired ,hourReservation);
-
-router.put("/appointments", authRequired ,cancelReservation);
+router.post("/appointments", authRequired ,hourReservation); // Pedir hora
+router.put("/appointments", authRequired ,cancelReservation); // Cancelar hora
 
 export default router;
