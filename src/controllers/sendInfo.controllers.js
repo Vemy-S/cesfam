@@ -25,6 +25,7 @@ export const userInfo = async (req, res) =>{
     );
 
     res.send({
+      
       rut: userInfo[0][0].user_rut,
       fullname: userInfo[0][0].user_fullname,
       user_birthdate: userInfo[0][0].user_birthdate,
@@ -34,6 +35,7 @@ export const userInfo = async (req, res) =>{
       user_hourstatus: userInfo[0][0].user_hourstatus, // Para verificar si tiene hora activa.
       user_counthours: userInfo[0][0].user_counthours,
       cesfam_id: userInfo[0][0].cesfam_id,
+
     });
 
   } catch (error) {

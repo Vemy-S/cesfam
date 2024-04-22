@@ -30,7 +30,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
             console.log('Login successful');
             console.log(data); 
 
-            window.location.href = "http://127.0.0.1/4000/index.html"
+            window.location.href = data.redirectToIndex;
         } else {
          
             console.error(data.message);
