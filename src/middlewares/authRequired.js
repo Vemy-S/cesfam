@@ -2,6 +2,8 @@ import jwt from 'jsonwebtoken'
 
 
 const authRequired = (req, res, next) => {
+   
+    
     const { token } = req.cookies
 
     if(!token) {
@@ -9,7 +11,6 @@ const authRequired = (req, res, next) => {
         // O res.redirect('/login.html)
     }
     
-
     jwt.verify(token, 'losgey', (err, decoded) => {
         if(err) return res.status(403).json({"message":"Invalid token"})
 
