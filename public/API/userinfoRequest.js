@@ -16,6 +16,6 @@ async function getUserInfo() {
 
 getUserInfo().then(data => {
   if (data) {
-      document.querySelector('.user-info h1').textContent = `RUT: ${data.rut} Nombre: ${data.fullname}, Email: ${data.user_email}, ${data.cesfam_name}`;
+      document.querySelector('.user-section h1').textContent = `RUT: ${data.rut} Nombre: ${data.fullname} ${data.cesfam_name}`;
   }
 });

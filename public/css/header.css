@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
 
 :root{
@@ -38,11 +37,68 @@ body{
    
 }
 
-section{
-    min-height: 100vh;
-    padding: 0 9%;
-    padding-top: 7.5rem;
-    padding-bottom: 2rem;
+.heading{
+    text-align: center;
+    background: var(--azul);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    padding: 1rem;
+}
+
+header{
+   position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .logo{
+    font-size: 3rem;
+    color: var(--azul);
+}
+header .navbar a{
+    font-size: 1.8rem;
+    margin-left: 6rem;
+    color: var(--limon);
+}
+header .navbar a i{
+    font-size: 1.8rem;
+    margin-left: 6rem;
+    color: var(--limon);
+}
+
+
+header .navbar a:hover{
+    color: var(--azul);
+}
+
+header input{
+    display: none;
+}
+
+header label{
+    font-size: 3rem;
+    color: var(--azul);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.main-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5rem 9%;
 }
 
 .btn{

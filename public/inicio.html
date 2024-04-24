@@ -16,60 +16,31 @@
         <input type="checkbox" id="menu-bar">
         <label for="menu-bar" class="fa fa-bars"></label>
         <nav class="navbar">
-            <a href="#inicio">Inicio</a>
-            <a href="#horas">Mis horas</a>
-            <a href="#acerca">Acerca de</a>
+            <a href="inicio.html">Inicio</a>
+            <a href="userhistory.html">Mis horas</a>
+            <a href="about.html">Acerca de</a>
             <a href="#contacto">Contacto</a>
 
             <div class="user-section">
                 <!-- información del usuario -->
+                <h1></h1>
             </div>
           
         </nav>
     
     </header>
+    
     <section class="inicio" id="inicio">
         <div class="content">
             <h3>Tu salud es <span>nuestra prioridad</span></h3>
-            <a href="#" class="btn">Reserva tu hora aquí</a>
+            <a href="hour_reservation.html" class="btn">Reserva tu hora aquí</a>
         </div>
         <div class="image">
             <img src="img/medico_web.png" alt="">
         </div>
     </section>
 
-    <section class="acerca" id="acerca">
-        <h1 class="heading">Preguntas Frecuentes</h1>
-        <div class="caja-contenedor">
-            <div class="caja">
-                <img src="img/icono1.png" alt="">
-                <h3>¿Qué debo hacer si no encuentro horas disponibles?</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    molestias laudantium pariatur non earum voluptas, expedita 
-                    quibusdam facere deleniti ducimus odit provident? Corrupti
-                     voluptatum ab molestiae dolores sit ex sequi commodi.</p>
 
-            </div>
-
-            <div class="caja">
-                <img src="img/icono2.png" alt="">
-                <h3>¿Cómo puedo cancelar una hora que ya he reservado?</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    molestias laudantium pariatur non earum voluptas, expedita 
-                    quibusdam facere deleniti ducimus odit provident? Corrupti
-                     voluptatum ab molestiae dolores sit ex sequi commodi.</p>
-            </div>
-
-            <div class="caja">
-                <img src="img/icono3.png" alt="">
-                <h3>¿Puedo reservar una hora para un miemnro de mi familia?</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    molestias laudantium pariatur non earum voluptas, expedita 
-                    quibusdam facere deleniti ducimus odit provident? Corrupti
-                     voluptatum ab molestiae dolores sit ex sequi commodi.</p>
-            </div>
-        </div>
-    </section>
-
+    <script src="/API/userinfoRequest.js""></script>
 </body>
 </html>

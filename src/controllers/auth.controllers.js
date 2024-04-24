@@ -23,7 +23,7 @@ export const loginuser = async (req, res) => {
 
     console.log(req.params);
 
-    res.json({ message: "Login succesfully", "redirectToIndex":"/index.html" });
+    res.json({ message: "Login succesfully", "redirectToIndex":"/inicio.html" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Internal Server Error" });

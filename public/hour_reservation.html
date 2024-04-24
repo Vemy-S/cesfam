@@ -12,9 +12,34 @@
         <link href="/css/reservation.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="../static/assets/img/logo_cesfam.ico" type="image/x-icon">
+
+        <!--     menu responsivo viene del cloudflare.com. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
 </head>
 
 <body>
+
+    <header>
+        <a href="#" class="logo">Cesfam</a>
+
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="fa fa-bars"></label>
+        <nav class="navbar">
+            <a href="inicio.html">Inicio</a>
+            <a href="userhistory.html">Mis horas</a>
+            <a href="about.html">Acerca de</a>
+            <a href="#contacto">Contacto</a>
+
+            <div class="user-section">
+                <!-- información del usuario -->
+                <h1></h1>
+            </div>
+          
+        </nav>
+    
+    </header>
+
     <div class="container py-5">
         <h2 class="text-center">Horas medicas</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4 py-5">
