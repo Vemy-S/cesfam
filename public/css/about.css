@@ -38,5 +38,6 @@
     margin-top: 8rem;
 }
 .here{
-    background-color: black;
+    background-color: white;
+    color: var(--azul);
 }

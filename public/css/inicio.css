@@ -218,5 +218,6 @@ header label{
 }
 
 .here{
-    background-color: black;
+    background-color: white;
+    color: var(--azul)
 }
