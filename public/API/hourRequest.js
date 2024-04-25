@@ -116,6 +116,13 @@ function openModal(hour, id) {
         const id = document.getElementById('id').value;
         sendDataToBackend({ description, hour, id });
         closeModal(modal, modalBackdrop);
+        const valdesc = description.value.trim();
+            if (valdesc === '') {
+                alert('Por favor, introduce texto en el cuadro de texto.');
+                description.focus(); 
+            } else {
+                alert('Texto válido: ' + valdesc);
+            }
     });
 
     modal.querySelector('.btn-close').addEventListener('click', () => {
@@ -146,7 +153,6 @@ async function sendDataToBackend(data) {
         if (!response.ok) {
             throw new Error(`Network response was not ok => Quizas ya tiene hora o la hora esta ocupada.`);
         }
-
         const responseData = await response.json();
         console.log(`Response from backend: ${responseData}`);
     } catch (error) {
