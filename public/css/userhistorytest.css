@@ -1,0 +1,133 @@
+body {
+    background-color: #f5f5f5;
+}
+
+.user {
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.section-user {
+    
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.title-user {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.user-info > * {
+    margin-bottom: 20px; /* Espacio entre filas */
+}
+
+.patient {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    color: purple; /* cambiar por el color de los root */
+    border-radius: 10px;
+}
+
+.user-info {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.user-info h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #aeb0c3;
+}
+
+.img-user {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info__name {
+    display: flex; 
+    align-items: center; 
+}
+
+h2, p {
+    margin: 0; /* Elimina los márgenes predeterminados */
+}
+
+.first-section, .second-section {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.first-section div, .second-section div {
+    width: 60%;
+}
+
+@media (max-width: 768px) {
+    .first-section, .second-section {
+        flex-direction: column;
+    }
+
+    .first-section div, .second-section div {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .img-user {
+        width: 50px;
+        height: 50px;
+    }
+
+    .user-info__name {
+        font-size: 14px;
+    }
+
+    .user-info h2 {
+        font-size: 16px;
+    }
+
+    .user-info p {
+        font-size: 14px;
+    }
+
+    .first-section, .second-section {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .img-user {
+        width: 40px;
+        height: 40px;
+    }
+
+    .user-info__name {
+        font-size: 12px;
+    }
+
+    .user-info h2 {
+        font-size: 14px;
+    }
+
+    .user-info p {
+        font-size: 12px;
+    }
+}
