@@ -8,7 +8,6 @@ import {
   logindoctor,
 } from "../controllers/auth.controllers.js";
 import authRequired from "../middlewares/authRequired.js";
-import { staticLogin } from "../controllers/static.controllers.js";
 
 const router = Router();
 
@@ -21,7 +20,5 @@ router.post("/loginuser", loginuser);
 router.post("/logout", logout);
 router.post("/logindoctor", logindoctor);
 
-router.get("/index", authRequired, profile);
-router.get("/loginuser", staticLogin);
 
 export default router;

@@ -21,7 +21,9 @@ export const loginuser = async (req, res) => {
     const token = await createAccesToken({ user });
     res.cookie("token", token);
 
-    res.json({ message: "Login succesfully" });
+    console.log(req.params);
+
+    res.json({ message: "Login succesfully", "redirectToIndex":"/inicio.html" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Internal Server Error" });

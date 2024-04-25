@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historial</title>
+  <link rel="stylesheet" href="css/historyuser.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <header>
+    <a href="#" class="logo">Cesfam</a>
+
+    <input type="checkbox" id="menu-bar">
+    <label for="menu-bar" class="fa fa-bars"></label>
+    <nav class="navbar">
+        <a href="inicio.html">Inicio</a>
+        <a href="userhistory.html">Mis horas</a>
+        <a href="about.html">Acerca de</a>
+        <a href="#contacto">Contacto</a>
+
+        <div class="user-section">
+            <!-- información del usuario -->
+            <h1></h1>
+        </div>
+      
+    </nav>
+
+</header>
+<main class="main-content">
+
+  <div class="container">
+    <h1>Historial De usuario</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Horas tomada</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody class="history-body">
+      
+      </tbody>
+    </table>
+  </div>
+</main>
+  <script src="API/userHistory.js"></script>
+</body>
+</html>
