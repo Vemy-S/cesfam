@@ -118,3 +118,17 @@ VALUES
 (109864238, 'Marcela Paz Torres Soto', '1989-12-20', 'Av. Las Camelias #789, Viña del Mar', 974589634, 'marcelatorres@example.com', 'MarcelaTSoto89@',FALSE, 0,0, 2),
 (207896514, 'Javier Alejandro Ruiz González', '1981-08-15', 'Av. Las Gardenias #987, Viña del Mar', 974125838, 'javierruiz@example.com', 'JavierRGonzalez81@',FALSE, 0,0, 2),
 (207444514, 'Alejandro Ruiz González', '1981-08-15', 'Av. Las Gardenias #987, Viña del Mar', 974192838, 'javier12z@example.com', 'JavierRlez81@',FALSE, 0,0, 1);
+
+
+
+SELECT u.user_fullname, u.user_rut, c.cesfam_name, c.cesfam_id from user u left join cesfam c on u.cesfam_id = c.cesfam_id;
+
+
+SELECT u.user_rut, u.user_fullname, u.user_birthdate, u.user_address, u.user_email, c.cesfam_name FROM user u left join cesfam c on u.cesfam_id = c.cesfam_id WHERE user_rut = 205422706;
+
+select m.medicalhour_id, m.medicalhour_time, m.medicalhour_status, c.cesfam_name , d.doctor_rut, d.doctor_fullname
+from medicalhour m
+left join doctor d 
+on m.doctor_rut = d.doctor_rut
+left join cesfam c
+on c.cesfam_id = d.cesfam_id;
