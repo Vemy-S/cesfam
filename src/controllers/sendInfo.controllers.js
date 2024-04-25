@@ -29,7 +29,7 @@ export const userInfo = async (req, res) => {
   const { user_rut } = req.user;
 
   try {
-    const userInfo = await pool.query("SELECT u.user_rut, u.user_fullname, u.user_birthdate, u.user_address, u.user_email, c.cesfam_name FROM user u left join cesfam c on u.cesfam_id = c.cesfam_id WHERE user_rut = ? ;", [
+    const userInfo = await pool.query("SELECT u.user_rut, u.user_phone, u.user_counthours, u.user_fullname, u.user_birthdate, u.user_address, u.user_email, c.cesfam_name FROM user u left join cesfam c on u.cesfam_id = c.cesfam_id WHERE user_rut = ? ;", [
       user_rut,
     ]);
 
