@@ -1,7 +1,6 @@
 CREATE DATABASE IF NOT EXISTS cesfamdb;
 
 USE cesfamdb;
-
 CREATE TABLE cesfam(
     cesfam_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     cesfam_name VARCHAR(50) NOT NULL,
@@ -111,6 +110,31 @@ CREATE TABLE login_history (
     FOREIGN KEY (user_rut) REFERENCES user(user_rut)
 );
 
+CREATE TABLE Actions (
+	action_id INT NOT NULL AUTO_INCREMENT,
+    action_description VARCHAR(100) NULL,
+    action_date DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (action_id)
+);
+
+
+DELIMITER //
+
+CREATE TRIGGER TRG_user_Delete
+AFTER DELETE ON user
+FOR EACH ROW
+BEGIN
+    INSERT INTO Actions (
+        action_description
+    )
+    VALUES (
+        CONCAT('The user ', OLD.user_fullname, ' with rut ', OLD.user_rut, ' has been removed from the database')
+    );
+END;
+//
+
+DELIMITER ;
+
 INSERT INTO user (user_rut, user_fullname, user_birthdate, user_address, user_phone, user_email, user_uniquekey, user_hourstatus, user_cancelcount, user_counthours , cesfam_id) 
 VALUES 
 (210009361, 'Damarys Ayleen Silva Garcia', '2002-04-15', 'Villa Cordillera 165', 934513464, 'damarys.asg@gmail.com','Ds151509.', FALSE, 0, 0, 1),
@@ -148,6 +172,3 @@ left join doctor d
 on m.doctor_rut = d.doctor_rut
 left join cesfam c
 on c.cesfam_id = d.cesfam_id;
-
-
-
