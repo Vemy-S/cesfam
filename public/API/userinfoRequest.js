@@ -1,47 +1,78 @@
+document.addEventListener('DOMContentLoaded', function() {
+  // Tu código aquí
+
+
 
 async function getUserInfo() {
-  try {
+    try {
       const response = await fetch('http://127.0.0.1:4000/api/userinfo', {
-          method: 'GET',
-          credentials: 'same-origin' // => Recibe Cookies
+        method: 'GET',
+        credentials: 'same-origin' // => Recibe Cookies
       });
-
+  
       const data = await response.json();
       return data; 
-  } catch (error) {
+    } catch (error) {
       console.error('Error al obtener la información del usuario:', error);
       return null; 
+    }
   }
-}
+  
+  getUserInfo().then(data => {
+    if (data) {
+      const profileName = document.querySelector('h2');
+      profileName.textContent = data.name;
+  
+      const chipsList = document.querySelector('.chips');
+      chipsList.innerHTML = ''; // Limpiar la lista antes de agregar los nuevos datos
+  
+      const rutItem = document.createElement('li');
+      rutItem.classList.add('chip');
+      rutItem.textContent = `Rut: ${data.rut}`;
+      chipsList.appendChild(rutItem);
+  
+      const emailItem = document.createElement('li');
+      emailItem.classList.add('chip');
+      emailItem.textContent = `Email: ${data.user_email}`;
+      chipsList.appendChild(emailItem);
+  
+      const adressItem = document.createElement('li');
+      adressItem.classList.add('chip');
+      adressItem.textContent = `Direccion: ${data.user_address}`;
+      chipsList.appendChild(adressItem);
+  
+      const hoursItem = document.createElement('li');
+      hoursItem.classList.add('chip');
+      hoursItem.textContent = `Horas pedidas: ${data.user_counthours}`;
+      chipsList.appendChild(hoursItem);
+  
+      const phoneItem = document.createElement('li');
+      phoneItem.classList.add('chip');
+      phoneItem.textContent = `Telefono: ${data.user_phone}`;
+      chipsList.appendChild(phoneItem);
 
-getUserInfo().then(data => {
- /*  if (data) {
-      document.querySelector('.user-section h1').textContent = `RUT: ${data.rut} Nombre: ${data.fullname} ${data.cesfam_name}`;
-  } */
+      const birthDate = document.createElement('li');
+      birthDate.classList.add('chip');
+      birthDate.textContent = `Nacimiento: ${data.user_birthdate}`;
+      chipsList.appendChild(birthDate);
 
-  if (data) {
-    console.log(data)
-    const patientName = document.querySelector('.patient');
-    const patientUser = document.querySelector('.user-info__name span');
-    const cesfamName = document.querySelector('.user-info__name p');
-    patientName.textContent = data.fullname;
-    cesfamName.textContent = `> ${data.cesfam_name}`;
-    patientUser.textContent = data.fullname
 
-    
-    const userRut = document.querySelector('.user-info__rut p');
-    const userAddress = document.querySelector('.user-info__address p');
-    const userPhone = document.querySelector('.user-info__phone p');
-    userRut.textContent = data.rut;
-    userAddress.textContent = data.user_address;
-    userPhone.textContent = data.user_phone;
+      console.log(data)
+      const cesfamName = document.querySelector('.cesfam-name');
+      cesfamName.textContent = data.cesfam_name; 
 
-    
-    const userEmail = document.querySelector('.user-info__email p');
-    const userCountHours = document.querySelector('.user-counthours p');
-    const userBirthdate = document.querySelector('.user_birthdate p');
-    userEmail.textContent = data.user_email;
-    userCountHours.textContent = data.user_counthours;
-    userBirthdate.textContent = data.user_birthdate;
-}
+
+
+      const cesfamPhone = document.querySelector('.cesfam-phone')
+      cesfamPhone.classList.add('chip')
+      cesfamPhone.textContent = `Telefono: ${data.cesfam_phone}`
+
+      const cesfamAddress = document.querySelector('.cesfam-address')
+      cesfamAddress.classList.add('chip')
+      cesfamAddress.textContent = `Telefono: ${data.cesfam_address}`
+  
+
+      
+    }
+  });
 });
