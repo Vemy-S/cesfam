@@ -94,6 +94,23 @@ CREATE TABLE hour_reservation(
     FOREIGN KEY (user_rut) REFERENCES user(user_rut)
 );
 
+CREATE TABLE active_sessions (
+    session_id INT PRIMARY KEY AUTO_INCREMENT,
+    session_token TEXT NOT NULL,
+    session_logintime DATETIME NOT NULL,
+    
+    user_rut INT,
+    FOREIGN KEY (user_rut) REFERENCES user(user_rut)
+);
+
+CREATE TABLE login_history (
+    login_id INT PRIMARY KEY AUTO_INCREMENT,
+    login_time DATETIME NOT NULL,
+    
+    user_rut INT,
+    FOREIGN KEY (user_rut) REFERENCES user(user_rut)
+);
+
 INSERT INTO user (user_rut, user_fullname, user_birthdate, user_address, user_phone, user_email, user_uniquekey, user_hourstatus, user_cancelcount, user_counthours , cesfam_id) 
 VALUES 
 (210009361, 'Damarys Ayleen Silva Garcia', '2002-04-15', 'Villa Cordillera 165', 934513464, 'damarys.asg@gmail.com','Ds151509.', FALSE, 0, 0, 1),
@@ -123,7 +140,6 @@ VALUES
 
 SELECT u.user_fullname, u.user_rut, c.cesfam_name, c.cesfam_id from user u left join cesfam c on u.cesfam_id = c.cesfam_id;
 
-
 SELECT u.user_rut, u.user_fullname, u.user_birthdate, u.user_address, u.user_email, c.cesfam_name FROM user u left join cesfam c on u.cesfam_id = c.cesfam_id WHERE user_rut = 205422706;
 
 select m.medicalhour_id, m.medicalhour_time, m.medicalhour_status, c.cesfam_name , d.doctor_rut, d.doctor_fullname
@@ -132,3 +148,6 @@ left join doctor d
 on m.doctor_rut = d.doctor_rut
 left join cesfam c
 on c.cesfam_id = d.cesfam_id;
+
+
+

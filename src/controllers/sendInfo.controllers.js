@@ -10,7 +10,7 @@ export const userHistory = async (req, res) => {
     );
 
     console.log(
-      `DEVUELVE LA INFO O NO  ${historyUser[0][0].reservation_description} AAAA LA DEVUELVE COMO OBJECT CON RAZON TIRA UNDEFINED PO`
+      `DEVUELVE LA INFO O NO  ${historyUser[0][0].reservation_description} AAAA LA DEVUELVE COMO OBJECT CON RAZON TIRA UNDEFINED PO ahora la tira bien si`
     );
 
     res.send({

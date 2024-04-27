@@ -17,8 +17,8 @@ router.get("/testconnect", async (req, res) => {
 });
 
 router.post("/loginuser", loginuser);
-router.post("/logout", logout);
 router.post("/logindoctor", logindoctor);
+router.post("/logout", authRequired, logout);
 
 
 export default router;
