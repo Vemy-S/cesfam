@@ -60,9 +60,6 @@ export const hourReservation = async (req, res) => {
       [medicalhour_id, user_rut, medicalhour_time, reservation_description]
     );
 
-    
-
-
     res.json({ message: "Reserved time succesfully" });
   } catch (error) {
     console.log(error.message);
