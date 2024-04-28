@@ -13,6 +13,12 @@ const app = express();
 
 cronReset();
 
+app.use('/index.html', (req, res)=>{
+    res.sendFile('index.html', {root: './public'})
+})
+//test
+
+
 app.use(express.static("./public"));
 app.use(morgan("dev"));
 app.use(cookieParser());
@@ -24,8 +30,8 @@ app.use(cors());
 app.use("/api", authRoutes);
 app.use("/api", appointmentsRoutes);
 app.use("/api", sendInfoRoutes);
-app.use(sendRoutes);
 app.use("/test", testRoutes);
+app.use(sendRoutes);
 
 
 

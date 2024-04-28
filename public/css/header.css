@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
+:root{
+    --azul: #14386e;
+    --limon:#75b1d4; 
+    --degradado:linear-gradient(90deg, var(--limon), var(--azul));
+}
+
+
+*{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    
+}
+
+*::selection{
+    background: var(--limon);
+    color: white;
+
+}
+
+html{
+    font-size: 62.4%;
+    overflow: hidden;
+    
+
+}
+
+body{
+    background: whitesmoke;
+    height: 100%;
+   
+}
+
+.heading{
+    text-align: center;
+    background: var(--azul);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    padding: 1rem;
+}
+
+header{
+   position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .logo{
+    font-size: 3rem;
+    color: var(--azul);
+}
+header .navbar a{
+    font-size: 1.8rem;
+    margin-left: 6rem;
+    color: var(--limon);
+}
+header .navbar a i{
+    font-size: 1.8rem;
+    margin-left: 6rem;
+    color: var(--limon);
+}
+
+
+header .navbar a:hover{
+    color: var(--azul);
+}
+
+header input{
+    display: none;
+}
+
+header label{
+    font-size: 3rem;
+    color: var(--azul);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.main-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5rem 9%;
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 2rem;
+    padding: .9rem 4rem;
+    border-radius: 7rem;
+    background: var(--degradado) ;
+    font-size: 2.8rem;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    transition: all .3s linear;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+
+.heading{
+    text-align: center;
+    background: var(--azul);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    padding: 1rem;
+}
+
+header{
+   position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .logo{
+    font-size: 3rem;
+    color: var(--azul);
+}
+header .navbar a{
+    font-size: 1.8rem;
+    margin-left: 6rem;
+    color: var(--limon);
+}
+header .navbar a i{
+    font-size: 1.8rem;
+    margin-left: 6rem;
+    color: var(--limon);
+}
+
+
+header .navbar a:hover{
+    color: var(--azul);
+}
+
+header input{
+    display: none;
+}
+
+header label{
+    font-size: 3rem;
+    color: var(--azul);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.inicio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../img/fondo.jpg) no-repeat;
+    background-size: cover;
+    background-position:center;
+}
+
+.inicio .image img{
+    width: 40vw;
+    animation: float 3s linear infinite;
+}
+
+@keyframes float{
+    0%, 100%{
+        transform: translateY(0rem);
+    }
+    50%{
+        transform: translateY(-3.5rem);
+    }
+}
+
+.inicio .content h3{
+    font-size: 5.5rem;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.inicio .content h3 span{
+    color: var(--limon);
+    text-transform: uppercase;
+}
+
+
+@media(max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+}
+
+@media(max-width:768px){
+    header label{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 1rem 2rem;
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        transition: .2s linear;
+    }
+
+    header .navbar a{
+        display: block;
+        margin: 2rem 0;
+        font-size: 2rem;
+    }
+
+    header input:checked ~ .navbar{
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    header input:checked ~ label::before{
+        content: '\f00d';
+    }
+
+    .inicio{
+        flex-flow: column-reverse;
+    }
+
+    .inicio .image img{
+        width: 100%;
+    }
+
+    .inicio .content h3{
+        font-size: 3.6rem;
+    }
+
+   
+}
+
+@media(max-width:450px){
+    html{
+        font-size: 49%;
+    }
+}
+

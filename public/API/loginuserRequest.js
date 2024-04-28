@@ -2,7 +2,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     event.preventDefault();
 
     const rut = document.getElementById('user_rut').value;
-    const uniqueKey = document.getElementById('user_uniquekey').value;
+    const uniqueKey = document.getElementById('pwd').value;
 
     try {
         const response = await fetch('http://127.0.0.1:4000/api/loginuser', {
@@ -20,17 +20,13 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         const data = await response.json();
         
         if (response.ok) {
-             const token = data.token;
-            localStorage.setItem('token', token);
-            console.log(token, 'token')
-            
-           
 
-         
+            localStorage.setItem('token', data.token);
+           
             console.log('Login successful');
             console.log(data); 
 
-            window.location.href = "http://127.0.0.1/4000/index.html"
+            window.location.href = data.redirectToIndex;
         } else {
          
             console.error(data.message);
@@ -38,4 +34,4 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     } catch (error) {
         console.error('Error during login:', error);
     }
-});
+});     

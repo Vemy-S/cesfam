@@ -2,9 +2,10 @@ import { pool } from "../db.js";
 import { createAccesToken } from "../libs/jwt.js";
 
 export const loginuser = async (req, res) => {
-  const { user_rut , user_uniquekey,  } = req.body;
-  
+  const { user_rut, user_uniquekey } = req.body;
+
   try {
+
     const findUser = await pool.query(
       "SELECT * from user WHERE user_rut = ? AND user_uniquekey = ?",
       [user_rut, user_uniquekey]
@@ -21,9 +22,35 @@ export const loginuser = async (req, res) => {
     const token = await createAccesToken({ user });
     res.cookie("token", token);
 
-    console.log(req.params);
 
-    res.json({ message: "Login succesfully" });
+    //Buscar si existe sesion
+    const existingSession = await pool.query(
+      "SELECT session_id FROM active_sessions WHERE user_rut = ?",
+      [user_rut]
+    );
+
+    const existingRows = existingSession[0]
+    console.log(`probando length ${existingRows.length}`)
+
+    //Validar session existente
+
+    if (existingRows.length >= 1) {
+      return res.status(403).json({ message: "User already logged in" });
+    }
+
+    // Crear sesion activa
+    const activeSession = await pool.query(
+      "INSERT INTO active_sessions (session_token, session_logintime, user_rut) VALUES (?, ?, ?)",
+      [token, new Date(), user_rut]
+    );
+
+    //Seguimiento logeos
+    const allSessions = await pool.query(
+      "INSERT INTO login_history (login_time, user_rut) VALUES (?, ?)",
+      [new Date(), user_rut]
+    );
+
+    res.json({ message: "Login succesfully", redirectToIndex: "/inicio.html" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Internal Server Error" });
@@ -63,18 +90,30 @@ export const register = (req, res) => {
 };
 
 export const profile = (req, res) => {
-  
   try {
     res.send("Profile");
   } catch (error) {
     console.log(error); // temporal
   }
-
 };
 
-export const logout = (req, res) => {
-  res.cookie("token", "", {
-    expires: new Date(0),
-  });
-  res.sendStatus(200);
+export const logout = async (req, res) => {
+  const { user_rut } = req.user;
+
+  try {
+    console.log(`User rut ${user_rut}`);
+
+    const deleteToken = await pool.query(
+      "DELETE FROM active_sessions WHERE user_rut = ?",
+      [user_rut]
+    );
+
+    res.cookie("token", "", {
+      expires: new Date(0),
+    });
+
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+  }
 };

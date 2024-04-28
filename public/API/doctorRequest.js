@@ -23,9 +23,9 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         if (response.ok) {
             
             console.log('Login successful');
-            console.log(data); 
+            console.log(data); // You may handle the response data here
 
-            window.location.href = "http://127.0.0.1:5501/views/home/doctor.html"
+            window.location.href = "http://127.0.0.1:5501/views/auth/index.html"
         } else {
     
             console.error(data.message);
