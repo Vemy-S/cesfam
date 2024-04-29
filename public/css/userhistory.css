@@ -163,11 +163,6 @@ body {
 ul{
     list-style-type: none;
 }
-.history-table {
-    width: 100%;
-    border-collapse: collapse;
-    overflow-y: auto;
-}
 
 .history-table th,
 .history-table td {
@@ -238,5 +233,14 @@ ul{
     width: 100%;
     height: 300px;
     border-radius: 10px;
+}
+
+
+main{
+    margin-top: 110px;
+}
+
+.size{
+    font-size: 15px;
 }
 

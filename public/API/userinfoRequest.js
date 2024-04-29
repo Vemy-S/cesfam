@@ -28,46 +28,55 @@ async function getUserInfo() {
   
       const rutItem = document.createElement('li');
       rutItem.classList.add('chip');
+      rutItem.classList.add('size')
       rutItem.textContent = `Rut: ${data.rut}`;
       chipsList.appendChild(rutItem);
   
       const emailItem = document.createElement('li');
       emailItem.classList.add('chip');
+      emailItem.classList.add('size')
       emailItem.textContent = `Email: ${data.user_email}`;
       chipsList.appendChild(emailItem);
   
       const adressItem = document.createElement('li');
       adressItem.classList.add('chip');
+      adressItem.classList.add('size')
       adressItem.textContent = `Direccion: ${data.user_address}`;
       chipsList.appendChild(adressItem);
   
       const hoursItem = document.createElement('li');
       hoursItem.classList.add('chip');
+      hoursItem.classList.add('size')
       hoursItem.textContent = `Horas pedidas: ${data.user_counthours}`;
       chipsList.appendChild(hoursItem);
   
       const phoneItem = document.createElement('li');
       phoneItem.classList.add('chip');
+      phoneItem.classList.add('size')
       phoneItem.textContent = `Telefono: ${data.user_phone}`;
       chipsList.appendChild(phoneItem);
 
       const birthDate = document.createElement('li');
       birthDate.classList.add('chip');
+      birthDate.classList.add('size')
       birthDate.textContent = `Nacimiento: ${data.user_birthdate}`;
       chipsList.appendChild(birthDate);
 
 
       console.log(data)
       const cesfamName = document.querySelector('.cesfam-name');
+      cesfamName.classList.add('size')
       cesfamName.textContent = data.cesfam_name; 
 
 
 
       const cesfamPhone = document.querySelector('.cesfam-phone')
+
       cesfamPhone.classList.add('chip')
       cesfamPhone.textContent = `Telefono: ${data.cesfam_phone}`
 
       const cesfamAddress = document.querySelector('.cesfam-address')
+
       cesfamAddress.classList.add('chip')
       cesfamAddress.textContent = `Telefono: ${data.cesfam_address}`
   
