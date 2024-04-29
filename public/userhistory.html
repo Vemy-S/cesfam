@@ -3,16 +3,35 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Cards</title>
+        <title>Perfil de usuario</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
             rel="stylesheet"
         >
         <link rel="stylesheet" href="css/userhistory.css">
+        <link rel="stylesheet" href="css/headerhistory.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+      
     </head>
     <body>
+
+        <header>
+            <a href="#" class="logo">Cesfam</a>
+    
+            <input type="checkbox" id="menu-bar">
+            <label for="menu-bar" class="fa fa-bars"></label>
+            <nav class="navbar">
+                <a href="inicio.html">Inicio</a>
+                <a href="userhistory.html"><span class="here">Mis horas</span></a>
+                <a href="about.html">Acerca de</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        
+        </header>
+
         <main>
         <div class="container container-grid"> 
 
@@ -21,12 +40,11 @@
                     <img src="img/undraw_male_avatar_g98d.svg" alt="profile">
                 </div>
                 <div class='content'>
-                    <h2></h2>
-                  
-                    <p>Tu Perfil de usuario</p>
+                
+                    <h1>Tu Perfil de usuario</h1>
 
                     <ul class="chips">
-                    
+                    <!-- Informacion del usuario -->
             
                     </ul>
 
@@ -61,7 +79,7 @@
                 <thead>
                     <tr>
                         <th>Fecha </th>
-                        <th>Hora</th>
+                        <th>Hora solicitada</th>
                         <!-- <th>Doctor</th> -->
                         <th>Razón</th>
                     </tr>
