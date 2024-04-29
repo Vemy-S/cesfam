@@ -32,8 +32,7 @@ export const loginuser = async (req, res) => {
     const existingRows = existingSession[0]
     console.log(`probando length ${existingRows.length}`)
 
-    //Validar session existente
-
+    //Permitir 1 sola session
     if (existingRows.length >= 1) {
       return res.status(403).json({ message: "User already logged in" });
     }

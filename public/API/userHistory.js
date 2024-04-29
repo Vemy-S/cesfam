@@ -14,17 +14,19 @@ async function getUserHistory (){
 }
 
 getUserHistory().then(data => {
-    if (data) {
-        const historyBody = document.querySelector('.history-body');
+      const historyTableBody = document.querySelector('.history-table tbody');
 
-        if (historyBody) {
-            const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${data.reservation_date}</td>
-                    <td>${data.medicalhour_time}</td>
-                    <td>${data.reservation_description}</td>
-                `;
-                historyBody.appendChild(row);
-        } 
-    }
-});
+        console.log(data)
+      if (historyTableBody) {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${data.reservation_date}</td>
+            <td>${data.medicalhour_time}</td>
+            <td>${data.reservation_description}</td>
+          `;
+          historyTableBody.appendChild(row);
+      }
+       /* <td>${data.doctor}</td> */
+    
+  });
+

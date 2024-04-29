@@ -110,6 +110,7 @@ CREATE TABLE login_history (
     FOREIGN KEY (user_rut) REFERENCES user(user_rut)
 );
 
+<<<<<<< HEAD
 CREATE TABLE Actions (
 	action_id INT NOT NULL AUTO_INCREMENT,
     action_description VARCHAR(100) NULL,
@@ -135,6 +136,18 @@ END;
 
 DELIMITER ;
 
+=======
+CREATE TABLE profile_admin (
+    admin_name VARCHAR(255) NOT NULL,
+    admin_email VARCHAR (255) NOT NULL,
+    admin_phone INT  NOT NULL,
+    is_super_admin BOOLEAN NOT NULL DEFAULT FALSE,
+    is_moderator BOOLEAN NOT NULL DEFAULT FALSE,
+    is_moderator_bd BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+
+>>>>>>> c1ea7d50ac51d5019f3e1c730b6d0b82f42b0287
 INSERT INTO user (user_rut, user_fullname, user_birthdate, user_address, user_phone, user_email, user_uniquekey, user_hourstatus, user_cancelcount, user_counthours , cesfam_id) 
 VALUES 
 (210009361, 'Damarys Ayleen Silva Garcia', '2002-04-15', 'Villa Cordillera 165', 934513464, 'damarys.asg@gmail.com','Ds151509.', FALSE, 0, 0, 1),

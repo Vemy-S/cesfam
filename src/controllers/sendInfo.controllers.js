@@ -29,7 +29,7 @@ export const userInfo = async (req, res) => {
   const { user_rut } = req.user;
 
   try {
-    const userInfo = await pool.query("SELECT u.user_rut, u.user_phone, u.user_counthours, u.user_fullname, u.user_birthdate, u.user_address, u.user_email, c.cesfam_name FROM user u left join cesfam c on u.cesfam_id = c.cesfam_id WHERE user_rut = ? ;", [
+    const userInfo = await pool.query("SELECT u.user_rut, u.user_phone, u.user_counthours, u.user_fullname, u.user_birthdate, u.user_address, u.user_email, c.cesfam_name, c.cesfam_address, c.cesfam_phone FROM user u left join cesfam c on u.cesfam_id = c.cesfam_id WHERE user_rut = ? ;", [
       user_rut,
     ]);
 
@@ -43,6 +43,8 @@ export const userInfo = async (req, res) => {
       user_hourstatus: userInfo[0][0].user_hourstatus, // Para verificar si tiene hora activa.
       user_counthours: userInfo[0][0].user_counthours,
       cesfam_name: userInfo[0][0].cesfam_name,
+      cesfam_phone: userInfo[0][0].cesfam_phone,
+      cesfam_address: userInfo[0][0].cesfam_address
     });
   } catch (error) {
     console.log(error.message);
