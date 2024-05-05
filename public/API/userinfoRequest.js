@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Tu código aquí
-
-
 
 async function getUserInfo() {
     try {
@@ -71,7 +68,7 @@ async function getUserInfo() {
 
 
       const cesfamPhone = document.querySelector('.cesfam-phone')
-
+      cesfamPhone.classList.add('size')
       cesfamPhone.classList.add('chip')
       cesfamPhone.textContent = `Telefono: ${data.cesfam_phone}`
 

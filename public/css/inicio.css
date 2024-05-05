@@ -1,4 +1,5 @@
 
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
 
 :root{
@@ -27,14 +28,13 @@
 
 html{
     font-size: 62.4%;
-    overflow: hidden;
-    
 
 }
 
 body{
     background: whitesmoke;
     height: 100%;
+    overflow-y: auto; 
    
 }
 
@@ -47,9 +47,9 @@ section{
 
 .btn{
     display: inline-block;
-    margin-top: 2rem;
-    padding: .9rem 4rem;
-    border-radius: 7rem;
+    margin-top: 3rem;
+    padding: .8rem 3rem;
+    border-radius: 9rem;
     background: var(--degradado) ;
     font-size: 2.8rem;
     color: white;
@@ -130,7 +130,8 @@ header label{
 
 .inicio .image img{
     width: 40vw;
-    animation: float 3s linear infinite;
+    animation: float 4s linear infinite;
+  
 }
 
 @keyframes float{
@@ -142,16 +143,54 @@ header label{
     }
 }
 
+
 .inicio .content h3{
     font-size: 5.5rem;
-    color: #333;
+    color: var(--azul);
     text-transform: uppercase;
 }
 
 .inicio .content h3 span{
-    color: var(--limon);
+    color: var(--azul);
     text-transform: uppercase;
 }
+
+.acerca .caja-contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.acerca .caja-contenedor .caja{
+    flex: 1 1 30rem;
+    background: white;
+    border-radius: .5rem;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    margin: 1.5rem;
+    padding: 3rem 2rem;
+    border-radius: .5rem;
+    text-align: center;
+    transition: .2s linear;
+
+}
+
+.acerca .caja-contenedor .caja img{
+    height: 15rem;
+}
+.acerca .caja-contenedor .caja h3{
+    font-size: 2rem;
+    color: #333;
+    padding-top: 1rem;
+}
+
+.acerca .caja-contenedor .caja p{
+    font-size: 1.3rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
 
 
 @media(max-width:1200px){
@@ -202,6 +241,7 @@ header label{
 
     .inicio .image img{
         width: 100%;
+       
     }
 
     .inicio .content h3{
@@ -215,9 +255,23 @@ header label{
     html{
         font-size: 49%;
     }
+
+   
 }
 
-.here{
-    background-color: white;
-    color: var(--azul)
+/*.inicio .content .user-section span{
+    font-size: 5.5rem;
+    color: var(--azul);
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-top: -10px;
+}
+
+.inicio .content .user-section h1{
+    font-size: 4.5rem;
+    color:#333;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-top: -10px;
+
 }
