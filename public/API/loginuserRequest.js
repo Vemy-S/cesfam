@@ -28,8 +28,17 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
             window.location.href = data.redirectToIndex;
         } else {
-         
-            console.error(data.message);
+            
+
+            if(data.message === 'User already logged in'){
+                alert('Hola alguien logeado')
+
+            }
+
+            if(data.message === 'Rut or password is invalid'){
+                alert('Rut o contrasenia es invalida')
+
+            }
         }
     } catch (error) {
         console.error('Error during login:', error);
