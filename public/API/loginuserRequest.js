@@ -28,8 +28,29 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
             window.location.href = data.redirectToIndex;
         } else {
-         
-            console.error(data.message);
+            
+            const messageElement = document.getElementById('message');
+
+
+            if(data.message === 'User already logged in'){
+                messageElement.innerText = 'Ya existe una sesión activa';
+            }
+
+            if(data.message === 'Rut or password is invalid'){
+                messageElement.innerText = 'Datos incorrectos';
+        
+
+            }
+
+            // Mostrar el mensaje
+            messageElement.style.display = 'block';
+
+
+            // desaparece después de 3 segundos
+            setTimeout(() => {
+                messageElement.style.display = 'none';
+                messageElement.innerText = ''; 
+            }, 3000);
         }
     } catch (error) {
         console.error('Error during login:', error);
