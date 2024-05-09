@@ -94,3 +94,19 @@ footer .gobDigital img{
     width: auto;
     max-height: 45px;
 }
+
+.message-box {
+    position: fixed;
+    top: 15%;
+    left: 51%;
+    margin-bottom: 100px;
+    transform: translate(-50%, -50%);
+    background-color: #f8d7da; /* Color de fondo rojo */
+    color: #721c24; /* Color de texto rojo */
+    padding: 20px 30px;
+    border: 3px solid #f5c6cb; /* Borde rojo */
+    border-radius: 5px;
+    text-align: center;
+    display: none; /* Ocultar el mensaje inicialmente */
+}
+

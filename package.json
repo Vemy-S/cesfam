@@ -22,7 +22,8 @@
     "mysql2": "^3.9.3",
     "node-cron": "^3.0.3",
     "nodemailer": "^6.9.13",
-    "twilio": "^5.0.4"
+    "twilio": "^5.0.4",
+    "zod": "^3.23.6"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"

@@ -69,21 +69,21 @@ CREATE TABLE medicalhour(
 
 INSERT INTO medicalhour (medicalhour_id, medicalhour_time, medicalhour_status, doctor_rut, cesfam_id)
 VALUES
-(1, '08:00:00', TRUE, 205422704, 1),
-(2, '08:30:00', TRUE, 205452706, 1),
-(3, '09:00:00', TRUE, 205402708, 2),
-(4, '09:30:00', TRUE, 205456710, 2),
-(5, '10:00:00', TRUE, 205421709, 1),
-(6, '10:30:00', TRUE, 205456710, 2),
-(7, '11:00:00', TRUE, 205472705, 2),
-(8, '11:30:00', TRUE, 205492707, 1),
-(9, '12:00:00', TRUE, 205452706, 1),
-(10, '12:30:00', TRUE, 205456710, 2);
+(1, '08:00', TRUE, 205422704, 1),
+(2, '08:30', TRUE, 205452706, 1),
+(3, '09:00', TRUE, 205402708, 2),
+(4, '09:30', TRUE, 205456710, 2),
+(5, '10:00', TRUE, 205421709, 1),
+(6, '10:30', TRUE, 205456710, 2),
+(7, '11:00', TRUE, 205472705, 2),
+(8, '11:30', TRUE, 205492707, 1),
+(9, '12:00', TRUE, 205452706, 1),
+(10, '12:30', TRUE, 205456710, 2);
 
 CREATE TABLE hour_reservation(
     reservation_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     reservation_date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    reservation_description VARCHAR (255) NOT NULL,
+    reservation_description VARCHAR (500) NOT NULL,
 
     medicalhour_time TIME NOT NULl,
     medicalhour_id INT,
@@ -92,6 +92,16 @@ CREATE TABLE hour_reservation(
     FOREIGN KEY (medicalhour_id) REFERENCES medicalhour(medicalhour_id),
     FOREIGN KEY (user_rut) REFERENCES user(user_rut)
 );
+
+SELECT reservation_id,
+       DATE_FORMAT(reservation_date, '%Y-%m-%d %H:%i') AS formatted_reservation_date,
+       reservation_description,
+       TIME_FORMAT(medicalhour_time, '%H:%i') AS formatted_medicalhour_time,
+       medicalhour_id,
+       user_rut
+FROM hour_reservation;
+
+
 
 CREATE TABLE active_sessions (
     session_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -102,6 +112,8 @@ CREATE TABLE active_sessions (
     FOREIGN KEY (user_rut) REFERENCES user(user_rut)
 );
 
+
+
 CREATE TABLE login_history (
     login_id INT PRIMARY KEY AUTO_INCREMENT,
     login_time DATETIME NOT NULL,
@@ -110,6 +122,7 @@ CREATE TABLE login_history (
     FOREIGN KEY (user_rut) REFERENCES user(user_rut)
 );
 
+<<<<<<<<< Temporary merge branch 1
 CREATE TABLE Actions (
 	action_id INT NOT NULL AUTO_INCREMENT,
     action_description VARCHAR(100) NULL,
@@ -135,6 +148,7 @@ END;
 
 DELIMITER ;
 
+=========
 CREATE TABLE profile_admin (
     admin_name VARCHAR(255) NOT NULL,
     admin_email VARCHAR (255) NOT NULL,
@@ -145,6 +159,7 @@ CREATE TABLE profile_admin (
 );
 
 
+>>>>>>>>> Temporary merge branch 2
 INSERT INTO user (user_rut, user_fullname, user_birthdate, user_address, user_phone, user_email, user_uniquekey, user_hourstatus, user_cancelcount, user_counthours , cesfam_id) 
 VALUES 
 (210009361, 'Damarys Ayleen Silva Garcia', '2002-04-15', 'Villa Cordillera 165', 934513464, 'damarys.asg@gmail.com','Ds151509.', FALSE, 0, 0, 1),
@@ -174,7 +189,7 @@ VALUES
 
 SELECT u.user_fullname, u.user_rut, c.cesfam_name, c.cesfam_id from user u left join cesfam c on u.cesfam_id = c.cesfam_id;
 
-SELECT u.user_rut, u.user_fullname, u.user_birthdate, u.user_address, u.user_email, c.cesfam_name FROM user u left join cesfam c on u.cesfam_id = c.cesfam_id WHERE user_rut = 205422706;
+SELECT u.user_rut, u.user_fullname, u.user_birthdate, u.user_address, u.user_email, c.cesfam_name, c.cesfam_address, c.cesfam_phone FROM user u left join cesfam c on u.cesfam_id = c.cesfam_id WHERE user_rut = 205422706;
 
 select m.medicalhour_id, m.medicalhour_time, m.medicalhour_status, c.cesfam_name , d.doctor_rut, d.doctor_fullname
 from medicalhour m
@@ -182,3 +197,6 @@ left join doctor d
 on m.doctor_rut = d.doctor_rut
 left join cesfam c
 on c.cesfam_id = d.cesfam_id;
+
+
+

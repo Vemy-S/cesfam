@@ -8,6 +8,8 @@ import {
   logindoctor,
 } from "../controllers/auth.controllers.js";
 import authRequired from "../middlewares/authRequired.js";
+import validateSchema from "../middlewares/validator.middleware.js";
+import {loginUserSchema} from "../schemas/auth.schema.js";
 
 const router = Router();
 
@@ -16,7 +18,7 @@ router.get("/testconnect", async (req, res) => {
   res.send(query);
 });
 
-router.post("/loginuser", loginuser);
+router.post("/loginuser", validateSchema(loginUserSchema), loginuser);
 router.post("/logindoctor", logindoctor);
 router.post("/logout", authRequired, logout);
 
