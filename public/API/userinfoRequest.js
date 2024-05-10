@@ -75,7 +75,7 @@ async function getUserInfo() {
       const cesfamAddress = document.querySelector('.cesfam-address')
 
       cesfamAddress.classList.add('chip')
-      cesfamAddress.textContent = `Telefono: ${data.cesfam_address}`
+      cesfamAddress.textContent = `Dirección: ${data.cesfam_address}`
   
 
       
