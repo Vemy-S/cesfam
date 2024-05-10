@@ -101,12 +101,12 @@ footer .gobDigital img{
     left: 51%;
     margin-bottom: 100px;
     transform: translate(-50%, -50%);
-    background-color: #f8d7da; /* Color de fondo rojo */
-    color: #721c24; /* Color de texto rojo */
+    background-color: #f8d7da; 
+    color: #721c24; 
     padding: 20px 30px;
-    border: 3px solid #f5c6cb; /* Borde rojo */
+    border: 3px solid #f5c6cb; 
     border-radius: 5px;
     text-align: center;
-    display: none; /* Ocultar el mensaje inicialmente */
+    display: none; 
 }
 

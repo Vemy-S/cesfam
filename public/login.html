@@ -35,12 +35,13 @@
                         <form id="loginForm">
                             <div class="mb-3 m-3">
                             <label for="Rut" class="form-label">Rut</label>
-                            <input type="text" class="form-control" id="user_rut" placeholder="Ingresar Rut" name="user_rut">
+                            <input type="text" class="form-control" id="user_rut" placeholder="Ingresar Rut" name="user_rut" pattern="[0-9]{8,9}" maxlength="9" title="Rut ingresado es incorrecto" required>
                             </div>
 
                             <div class="mb-3 m-3">
                             <label for="pwd" class="form-label">Clave única</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Ingresar ClaveÚnica" name="pswd">
+                            <input type="password" class="form-control" id="pwd" placeholder="Ingresar ClaveÚnica" name="pswd" pattern="[A-Za-z0-9!@#$%^&*()_+]{8,}" title="Debe tener al menos 8 caracteres, incluir letras mayúsculas, minúsculas, números y símbolos" required>
+                            </div>
                             </div>
                             <div class="form-check mb-3 m-3">
                            
