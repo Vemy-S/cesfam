@@ -98,7 +98,7 @@ function openModal(hour, id) {
                     <form id="reservationForm">
                         <div class="mb-3">
                             <label for="description" class="form-label">Descripción</label>
-                            <textarea class="form-control" id="description" rows="3"></textarea>
+                            <textarea class="form-control" id="description" required rows="3"></textarea>
                         </div>
                         <input type="hidden" id="id" value="${id}">
                         <button type="submit" class="btn btn-primary">Enviar</button>
@@ -113,6 +113,25 @@ function openModal(hour, id) {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         const description = document.getElementById('description').value;
+        if (description.length < 450) {
+            
+            console.log('Descripción:', description);
+            
+        } else {
+            const messageElement = document.getElementById('message');
+            if (description.length > 450) {
+                messageElement.textContent = 'La descripción no puede superar los 450 caracteres';
+            }
+                messageElement.style.display = 'block';
+            setTimeout(() => {
+                messageElement.style.display = 'none';
+                messageElement.innerText = ''; 
+            }, 4000);
+            closeModal(modal, modalBackdrop);
+            return;
+            
+        }
+
         const id = document.getElementById('id').value;
         sendDataToBackend({ description, hour, id });
         closeModal(modal, modalBackdrop);
@@ -129,7 +148,8 @@ function closeModal(modal, modalBackdrop) {
 }
 
 async function sendDataToBackend(data) {
-    try {
+    try 
+    {
         console.log(data)
         const response = await fetch('http://127.0.0.1:4000/api/appointments', {
             method: 'POST',
@@ -142,14 +162,29 @@ async function sendDataToBackend(data) {
                 reservation_description: data.description
             })
         });
+        
+        const rdata = await response.json();
+        if (response.ok) {
 
-        if (!response.ok) {
-            throw new Error(`Network response was not ok => Quizas ya tiene hora o la hora esta ocupada.`);
-        }
+            console.log('Se registraron los datos', rdata.message);
 
-        const responseData = await response.json();
-        console.log(`Response from backend: ${responseData}`);
-    } catch (error) {
+        } else {
+
+            const messageElement = document.getElementById('message');
+            if (rdata.message === "Time not available") {
+            messageElement.textContent='Hora no disponible';
+           }
+            if (rdata.message === "User already has a reserved time") {
+                messageElement.textContent='Ya tienes una hora reservada';
+            }
+
+            messageElement.style.display = 'block';
+            setTimeout(() => {
+                messageElement.style.display = 'none';
+                messageElement.innerText = ''; 
+            }, 4000);
+        }   
+    }catch (error) {
         console.error(`Error: ${error}`,);
     }
 }
