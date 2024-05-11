@@ -88,8 +88,10 @@ footer .sr-civil img{
 footer .disclaimer{
     text-align: center;
     padding: 0 16px;
+    margin-top: 15px;
     margin-left: 13.33%;
 }
+
 footer .gobDigital img{
     width: auto;
     max-height: 45px;
