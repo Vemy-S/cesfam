@@ -1,10 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
+:root{
+    --azul: #14386e;
+    --limon:#75b1d4; 
+    --degradado:linear-gradient(90deg, var(--limon), var(--azul));
+}
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 body{
-        background-color: #f9f6f2;
+    background: whitesmoke;
+    height: 100%;
+    overflow-y: auto; 
+   
 }
 .card-img-top{
     border-radius: 50px;
@@ -30,4 +40,99 @@ body{
 h3,h5{
     color: rgb(0, 91, 228);
     
+}
+
+*{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+*::selection{
+    background: var(--limon);
+    color: white;
+
+}
+
+html{
+    font-size: 62.4%;
+
+}
+
+body{
+    background: whitesmoke;
+    height: 100%;
+    overflow-y: auto; 
+   
+}
+
+section{
+    min-height: 100vh;
+    padding: 0 9%;
+    padding-top: 7.5rem;
+    padding-bottom: 2rem;
+}
+
+header{
+    position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     background-color: white;
+     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+     padding: 2rem 9%;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     z-index: 1000;
+ }
+ 
+ header .logo{
+     font-size: 3rem;
+     color: var(--azul);
+ }
+ header .navbar a{
+     font-size: 1.8rem;
+     margin-left: 6rem;
+     color: var(--limon);
+ }
+ header .navbar a i{
+     font-size: 1.8rem;
+     margin-left: 6rem;
+     color: var(--limon);
+ }
+ 
+ 
+ header .navbar a:hover{
+     color: var(--azul);
+ }
+ 
+ header input{
+     display: none;
+ }
+ 
+ header label{
+     font-size: 3rem;
+     color: var(--azul);
+     cursor: pointer;
+     visibility: hidden;
+     opacity: 0;
+ }
+ .message-box {
+    position: fixed;
+    top: 15%;
+    left: 51%;
+    margin-bottom: 100px;
+    transform: translate(-50%, -50%);
+    background-color: #f8d7da; /* Color de fondo rojo */
+    color: #721c24; /* Color de texto rojo */
+    padding: 20px 30px;
+    border: 3px solid #f5c6cb; /* Borde rojo */
+    border-radius: 5px;
+    text-align: center;
+    display: none; /* Ocultar el mensaje inicialmente */
 }
