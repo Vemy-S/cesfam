@@ -132,8 +132,6 @@ header label{
 .inicio .image img{
     width: 38vw;
     animation: float 4s linear infinite;
-    margin-right: -100px;
-  
 }
 
 @keyframes float{
