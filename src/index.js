@@ -7,14 +7,3 @@ app.listen(port, host, ()=>{
 })
 
 
-process.on('SIGTERM', () => {
-    server.close(() => {
-      console.log('Process terminated');
-    });
-  });
-  
-  process.on('SIGINT', () => {
-    server.close(() => {
-      console.log('Process interrupted');
-    });
-  })
