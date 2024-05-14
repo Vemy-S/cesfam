@@ -29,9 +29,10 @@
 }
 
 .acerca .caja-contenedor .caja p{
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     color: #666;
     padding: 1rem 0;
+    text-align: justify;
 }
 
 .about-help-main{

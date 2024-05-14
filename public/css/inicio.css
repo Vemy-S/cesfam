@@ -48,6 +48,7 @@ section{
 .btn{
     display: inline-block;
     margin-top: 3rem;
+    margin-left: -150px;
     padding: .8rem 3rem;
     border-radius: 9rem;
     background: var(--degradado) ;
@@ -88,7 +89,7 @@ header{
 }
 
 header .logo{
-    font-size: 3rem;
+    font-size:3rem;
     color: var(--azul);
 }
 header .navbar a{
@@ -129,8 +130,9 @@ header label{
 }
 
 .inicio .image img{
-    width: 40vw;
+    width: 38vw;
     animation: float 4s linear infinite;
+    margin-right: -100px;
   
 }
 
@@ -143,15 +145,24 @@ header label{
     }
 }
 
-
-.inicio .content h3{
+.inicio .content h1{
     font-size: 5.5rem;
+    margin-top: -80px;
+    margin-left: -150px;
     color: var(--azul);
     text-transform: uppercase;
 }
 
+.inicio .content h3{
+    font-size: 34px;
+    margin-top: 30px;
+    margin-left: -150px;
+    color: rgb(78, 132, 168);
+    text-transform: uppercase;
+}
+
 .inicio .content h3 span{
-    color: var(--azul);
+    color: rgb(78, 132, 168);
     text-transform: uppercase;
 }
 
@@ -256,22 +267,10 @@ header label{
         font-size: 49%;
     }
 
-   
 }
 
-/*.inicio .content .user-section span{
-    font-size: 5.5rem;
+.here{
+    background-color: white;
     color: var(--azul);
-    text-transform: uppercase;
-    white-space: nowrap;
-    margin-top: -10px;
 }
 
-.inicio .content .user-section h1{
-    font-size: 4.5rem;
-    color:#333;
-    text-transform: uppercase;
-    white-space: nowrap;
-    margin-top: -10px;
-
-}

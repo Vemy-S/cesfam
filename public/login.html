@@ -30,29 +30,27 @@
                      
 
                         <div class="text-center my-1 text-secondary">
-                            <h1>Clave Única</h1>
+                            <h1>ClaveÚnica</h1>
                         </div>
                         <form id="loginForm">
                             <div class="mb-3 m-3">
                             <label for="Rut" class="form-label">Rut</label>
-                            <input type="text" class="form-control" id="user_rut" placeholder="Ingrese Rut" name="user_rut">
+                            <input type="text" class="form-control" id="user_rut" placeholder="Ingresar Rut" name="user_rut" pattern="[0-9]{8,9}" maxlength="9" title="Rut ingresado es incorrecto" required inputmode="numeric">
                             </div>
 
                             <div class="mb-3 m-3">
                             <label for="pwd" class="form-label">Clave única</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Ingresar clave unica" name="pswd">
+                            <input type="password" class="form-control" id="pwd" placeholder="Ingresar ClaveÚnica" name="pswd" pattern="[A-Za-z0-9!@#$%^&*()_+]{8,15}"  maxlength="15" title="Debe tener al menos 8 caracteres, incluir letras mayúsculas, minúsculas, números y símbolos" required>
+                            </div>
                             </div>
                             <div class="form-check mb-3 m-3">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="recordarme"> Recordarme
-                            </label>
+                           
                             </div>
                             <div class="d-grid mb-5 m-3">
                                 <button type="submit" class="btn gob-btn-primary p-3">INGRESAR</button>
                             </div>
                             <div id="message" class="message-box"></div>
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -65,12 +63,12 @@
     <footer  class="bg-dark-blue text-white">
         <div class="container col-12 ">
             <div class="sr-civil">
-                <span>Colabora</span>
+                <span>Colabora:</span>
                 <img src="/img/srci.svg" alt="" >
 
              </div>
             <div class="disclaimer">
-                <p> Servicio de autoentificación  Clave Unica</p>
+                <p>Servicio de autoentificación ClaveÚnica</p>
                 <p>Gobierno de Chile</p>
 
             </div>
@@ -84,7 +82,8 @@
     </footer> 
 
    <script src="API/loginuserRequest.js"></script>
-
+   <script src="API/sessionMessage.js"></script>
+   
 
    </body>
 
