@@ -9,7 +9,7 @@ export const userHistory = async (req, res) => {
       [user_rut]
     );
 
-    console.log(
+ /*    console.log(
       `DEVUELVE LA INFO O NO  ${historyUser[0][0].reservation_description} AAAA LA DEVUELVE COMO OBJECT CON RAZON TIRA UNDEFINED PO ahora la tira bien si`
     );
 
@@ -19,7 +19,19 @@ export const userHistory = async (req, res) => {
       reservation_description: historyUser[0][0].reservation_description,
       reservation_status: historyUser[0][0].reservation_status,
       medicalhour_time: historyUser[0][0].medicalhour_time,
-    });
+    }); */
+
+    const responseHistory = historyUser[0].map(value => ({
+      reservation_id: value.reservation_id,
+      reservation_date: value.reservation_date,
+      reservation_description: value.reservation_description ,
+      reservation_status: value.reservation_status,
+      medicalhour_time: value.medicalhour_time,
+
+
+    }))
+
+    res.json(responseHistory)
   } catch (error) {
     console.log(error.message);
   }
