@@ -48,7 +48,7 @@ section{
 .btn{
     display: inline-block;
     margin-top: 3rem;
-    margin-left: -150px;
+
     padding: .8rem 3rem;
     border-radius: 9rem;
     background: var(--degradado) ;
@@ -130,7 +130,7 @@ header label{
 }
 
 .inicio .image img{
-    width: 38vw;
+    width: 40vw;
     animation: float 4s linear infinite;
 }
 
@@ -144,17 +144,17 @@ header label{
 }
 
 .inicio .content h1{
-    font-size: 5.5rem;
-    margin-top: -80px;
-    margin-left: -150px;
+    font-size: 5rem;
+   
+
     color: var(--azul);
     text-transform: uppercase;
 }
 
 .inicio .content h3{
-    font-size: 34px;
-    margin-top: 30px;
-    margin-left: -150px;
+    font-size: 3.1rem;
+  
+   
     color: rgb(78, 132, 168);
     text-transform: uppercase;
 }
@@ -204,7 +204,15 @@ header label{
 
 @media(max-width:1200px){
     html{
-        font-size: 55%;
+        font-size: 60%;
+    }
+}
+
+@media(max-width:990px){
+    section{
+        padding: 0 3%;
+        padding-top: 7.5rem;
+        padding-bottom: 2rem;
     }
 }
 
@@ -253,16 +261,20 @@ header label{
        
     }
 
-    .inicio .content h3{
+    .inicio .content h1{
         font-size: 3.6rem;
+    }
+
+    .inicio .content h3{
+        font-size: 2.6rem;
     }
 
    
 }
 
-@media(max-width:450px){
+@media(max-width:480px){
     html{
-        font-size: 49%;
+        font-size: 50%;
     }
 
 }
