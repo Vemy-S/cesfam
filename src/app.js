@@ -8,6 +8,7 @@ import { cronReset } from "./Automate/resetTime.js";
 import sendInfoRoutes from "./routes/sendInfo.routes.js";
 import sendRoutes from "./routes/send.routes.js";
 import testRoutes from "./routes/TEST.routes.js";
+import updateUser from "./routes/user.routes.js"
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(cors());
 app.use("/api", authRoutes);
 app.use("/api", appointmentsRoutes);
 app.use("/api", sendInfoRoutes);
+app.use("/api", updateUser);
 app.use("/test", testRoutes);
 app.use(sendRoutes);
 
