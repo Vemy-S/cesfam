@@ -73,9 +73,13 @@ export const infoHour = async (req, res) => {
       let doctorImgBase64 = null;
 
       if(hour.doctor_img) {
-        const base64Image = Buffer.from(hour.doctor_img).toString('base64')
-        doctorImgBase64 = base64Image;
-       
+        
+        const base64Image = Buffer.from(hour.doctor_img, 'base64').toString('utf-8');
+
+        const newImagePath = base64Image.replace("cesfampublicimg", "cesfam/public/img");
+
+        
+        doctorImgBase64 = Buffer.from(newImagePath).toString('base64');
       }
 
       return {
