@@ -82,7 +82,7 @@ export const infoHour = async (req, res) => {
         doctor_rut: hour.doctor_rut,
         doctor_fullname: hour.doctor_fullname,
         cesfam_name: hour.cesfam_name,
-        doctor_img: hour.doctor_img
+        doctor_img: doctorImgBase64
       }
 
     })
