@@ -27,8 +27,6 @@ export const userHistory = async (req, res) => {
       reservation_description: value.reservation_description ,
       reservation_status: value.reservation_status,
       medicalhour_time: value.medicalhour_time,
-
-
     }))
 
     res.json(responseHistory)
