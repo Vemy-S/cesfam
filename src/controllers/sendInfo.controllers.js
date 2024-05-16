@@ -72,7 +72,8 @@ export const infoHour = async (req, res) => {
       //Si no funciona borrar
       let doctorImgBase64 = null;
       if(hour.doctor_img) {
-        doctorImgBase64 = Buffer.from(hour.doctor_img).toString('base64')
+        const base64Image = Buffer.from(hour.doctor_img).toString('base64')
+        doctorImgBase64 = `data:image/jpeg;base64,${base64Image}`;
       }
 
       return {
