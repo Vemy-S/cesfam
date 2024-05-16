@@ -64,7 +64,7 @@ export const userInfo = async (req, res) => {
 export const infoHour = async (req, res) => {
   try {
     const hourWithDoctor = await pool.query(
-      "select m.medicalhour_id, m.medicalhour_time, m.medicalhour_status, c.cesfam_name , d.doctor_rut, d.doctor_fullname from medicalhour m left join doctor d on m.doctor_rut = d.doctor_rut left join cesfam c on c.cesfam_id = d.cesfam_id;"
+      "select m.medicalhour_id, m.medicalhour_time, m.medicalhour_status, c.cesfam_name , d.doctor_rut, d.doctor_fullname, d.doctor_img from medicalhour m left join doctor d on m.doctor_rut = d.doctor_rut left join cesfam c on c.cesfam_id = d.cesfam_id;"
     );
 
     const responseData = hourWithDoctor[0].map(hour =>{
@@ -74,7 +74,8 @@ export const infoHour = async (req, res) => {
         medicalhour_status: hour.medicalhour_status,
         doctor_rut: hour.doctor_rut,
         doctor_fullname: hour.doctor_fullname,
-        cesfam_name: hour.cesfam_name
+        cesfam_name: hour.cesfam_name,
+        doctor_img: hour.doctor_img
       }
 
     })
