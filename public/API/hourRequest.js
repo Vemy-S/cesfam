@@ -166,8 +166,9 @@ async function sendDataToBackend(data) {
         
         const rdata = await response.json();
         if (response.ok) {
-
+            const messageElement = document.getElementById('message');
             console.log('Se registraron los datos', rdata.message);
+
             if(rdata.message === "Reserved time succesfully") {
                 messageElement.textContent='Hora reservada con exito';
             }
@@ -176,6 +177,8 @@ async function sendDataToBackend(data) {
         } else {
             // Se registraron los datos Reserved time succesfully
             const messageElement = document.getElementById('message');
+        
+
             if (rdata.message === "Time not available") {
             messageElement.textContent='Hora no disponible';
            }
