@@ -68,6 +68,13 @@ export const infoHour = async (req, res) => {
     );
 
     const responseData = hourWithDoctor[0].map(hour =>{
+
+      //Si no funciona borrar
+      let doctorImgBase64 = null;
+      if(hour.doctor_img) {
+        doctorImgBase64 = buffer.from(hour.doctor_img).toString('base64')
+      }
+
       return {
         medicalhour_id: hour.medicalhour_id,
         medicalhour_time: hour.medicalhour_time,
