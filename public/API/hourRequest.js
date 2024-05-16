@@ -27,9 +27,8 @@ document.addEventListener("DOMContentLoaded", async function() {
                 cardDiv.classList.add('card');
 
                 const img = document.createElement('img');
-                console.log(hourData.doctor_img)
-                /* img.src = '/img/doctor1.webp'; */
-                img.src = hourData.doctor_img;
+                img.src = '/img/doctor1.webp'; 
+                /*  img.src = hourData.doctor_img; */
                 img.classList.add('card-img-top');
                 img.alt = '...';
 
