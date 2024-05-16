@@ -112,3 +112,13 @@ footer .gobDigital img{
     display: none; 
 }
 
+
+/*.btn-show{
+    padding: 14px 28px;
+    background: linear-gradient(to bottom, #1b1c3f, #4a4e91);
+    border-radius: 30px;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: white;
+}
