@@ -177,6 +177,10 @@ async function sendDataToBackend(data) {
         } else {
             // Se registraron los datos Reserved time succesfully
             const messageElement = document.getElementById('message');
+
+            if(rdata.message === "Reserved time succesfully") {
+                messageElement.textContent='Hora reservada con exito, desde else';
+            }
         
 
             if (rdata.message === "Time not available") {
